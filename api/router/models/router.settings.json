@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "routers",
+  "info": {
+    "name": "router",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false,
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "Route": {
+      "type": "string",
+      "default": "index"
+    },
+    "Placeholders": {
+      "type": "dynamiczone",
+      "components": [
+        "plugins.placeholder",
+        "plugins.parameter"
+      ]
+    },
+    "Widgets": {
+      "type": "dynamiczone",
+      "components": [
+        "plugins.widget",
+        "plugins.parameter"
+      ]
+    },
+    "Parameters": {
+      "type": "component",
+      "repeatable": true,
+      "component": "plugins.parameter"
+    },
+    "template": {
+      "model": "template"
+    }
+  }
+}

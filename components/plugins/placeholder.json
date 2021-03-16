@@ -1,0 +1,19 @@
+{
+  "collectionName": "Placeholder",
+  "info": {
+    "name": "Placeholder",
+    "icon": "atom",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Parameters": {
+      "type": "component",
+      "repeatable": true,
+      "component": "plugins.parameter"
+    }
+  }
+}

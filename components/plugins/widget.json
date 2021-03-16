@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_plugins_widgets",
+  "info": {
+    "name": "Widget",
+    "icon": "icons",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Parameters": {
+      "type": "component",
+      "repeatable": true,
+      "component": "plugins.parameter"
+    },
+    "Placeholder": {
+      "type": "string"
+    }
+  }
+}

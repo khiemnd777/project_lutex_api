@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_plugins_parameters",
+  "info": {
+    "name": "Parameter",
+    "icon": "at"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Value": {
+      "type": "string"
+    }
+  }
+}

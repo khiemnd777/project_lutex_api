@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "templates",
+  "info": {
+    "name": "template",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false,
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Parameters": {
+      "type": "component",
+      "repeatable": true,
+      "component": "plugins.parameter"
+    },
+    "Placeholders": {
+      "type": "dynamiczone",
+      "components": [
+        "plugins.placeholder",
+        "plugins.parameter"
+      ]
+    },
+    "Widgets": {
+      "type": "dynamiczone",
+      "components": [
+        "plugins.widget",
+        "plugins.parameter"
+      ]
+    }
+  }
+}
