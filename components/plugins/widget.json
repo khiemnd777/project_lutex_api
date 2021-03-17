@@ -7,9 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "Name": {
-      "type": "string"
-    },
     "Parameters": {
       "type": "component",
       "repeatable": true,
@@ -17,6 +14,16 @@
     },
     "Placeholder": {
       "type": "string"
+    },
+    "widget": {
+      "model": "widget"
+    },
+    "ConfigurationName": {
+      "type": "string"
+    },
+    "Enabled": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

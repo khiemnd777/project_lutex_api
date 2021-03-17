@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "widgets",
+  "info": {
+    "name": "widget",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false,
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Enabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "FriendlyName": {
+      "type": "string"
+    },
+    "ConfigurationName": {
+      "type": "string"
+    },
+    "Parameters": {
+      "type": "component",
+      "repeatable": true,
+      "component": "plugins.parameter"
+    }
+  }
+}

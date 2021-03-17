@@ -29,10 +29,15 @@
       "repeatable": true,
       "component": "plugins.placeholder"
     },
+    "Enabled": {
+      "type": "boolean",
+      "default": false
+    },
     "Widgets": {
-      "type": "component",
-      "repeatable": true,
-      "component": "plugins.widget"
+      "type": "dynamiczone",
+      "components": [
+        "plugins.widget"
+      ]
     }
   }
 }

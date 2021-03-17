@@ -25,10 +25,14 @@
       "repeatable": true,
       "component": "plugins.placeholder"
     },
+    "FriendlyName": {
+      "type": "string"
+    },
     "Widgets": {
-      "type": "component",
-      "repeatable": true,
-      "component": "plugins.widget"
+      "type": "dynamiczone",
+      "components": [
+        "plugins.widget"
+      ]
     }
   }
 }
