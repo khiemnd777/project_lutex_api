@@ -16,20 +16,6 @@
       "type": "string",
       "default": "index"
     },
-    "Placeholders": {
-      "type": "dynamiczone",
-      "components": [
-        "plugins.placeholder",
-        "plugins.parameter"
-      ]
-    },
-    "Widgets": {
-      "type": "dynamiczone",
-      "components": [
-        "plugins.widget",
-        "plugins.parameter"
-      ]
-    },
     "Parameters": {
       "type": "component",
       "repeatable": true,
@@ -37,6 +23,16 @@
     },
     "template": {
       "model": "template"
+    },
+    "Placeholders": {
+      "type": "component",
+      "repeatable": true,
+      "component": "plugins.placeholder"
+    },
+    "Widgets": {
+      "type": "component",
+      "repeatable": true,
+      "component": "plugins.widget"
     }
   }
 }
