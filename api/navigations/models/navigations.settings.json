@@ -34,6 +34,10 @@
     "Path": {
       "type": "string",
       "default": "/"
+    },
+    "DisplayOrder": {
+      "type": "integer",
+      "default": 0
     }
   }
 }
