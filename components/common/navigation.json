@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_common_navigations",
+  "info": {
+    "name": "Navigation",
+    "icon": "bars"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Router": {
+      "model": "router"
+    }
+  }
+}
