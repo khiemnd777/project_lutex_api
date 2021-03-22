@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_common_sliders",
+  "info": {
+    "name": "Slider",
+    "icon": "ticket-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "Picture": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

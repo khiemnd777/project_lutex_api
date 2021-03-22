@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "environments",
+  "info": {
+    "name": "Environment"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "PrivateToken": {
+      "type": "string"
+    }
+  }
+}
