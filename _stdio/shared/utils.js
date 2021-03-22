@@ -54,9 +54,13 @@ const toSeoModel = (entity, mapFrom) => {
   return target;
 };
 
-const slugifyUtils = (data, prop) => {
-  if (!!data[prop]) {
-    data.slug = slugify(data[prop], { lower: true });
+const slugifyUtils = (data, prop, slugProp) => {
+  var slug = slugProp ? slugProp : "Slug";
+  if (!data[slug] && !!data[prop]) {
+    var slugVal = slugify(data[prop], { lower: true });
+    slugVal = slugVal.replace(/[\._\-]+$/g, '');
+    slugVal = slugVal.replace('.', '-');
+    data[slug] = slugVal;
   }
 };
 

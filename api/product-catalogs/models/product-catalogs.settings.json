@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_catalogs",
+  "info": {
+    "name": "Product Catalogs",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Root": {
+      "type": "boolean",
+      "default": true
+    },
+    "Icon": {
+      "type": "enumeration",
+      "enum": [
+        "icon_"
+      ]
+    },
+    "DisplayOrder": {
+      "type": "integer",
+      "default": 0
+    },
+    "Slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Children": {
+      "collection": "product-catalogs"
+    }
+  }
+}
