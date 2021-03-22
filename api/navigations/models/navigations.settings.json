@@ -33,11 +33,16 @@
     },
     "Path": {
       "type": "string",
-      "default": "/"
+      "default": "/",
+      "required": true,
+      "unique": true
     },
     "DisplayOrder": {
       "type": "integer",
       "default": 0
+    },
+    "DisplayName": {
+      "type": "string"
     }
   }
 }

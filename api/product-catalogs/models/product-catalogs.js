@@ -5,15 +5,17 @@
  * to customize this model
  */
 
-const { slugifyUtils } = require("../../../_stdio/shared/utils");
+const { slugifyUtils, displayNameUtils } = require("../../../_stdio/shared/utils");
 
 module.exports = {
   lifecycles: {
     async beforeCreate(data) {
-      slugifyUtils(data, 'Name', 'Slug');
+      displayNameUtils(data, 'Name');
+      slugifyUtils(data, 'DisplayName');
     },
     async beforeUpdate(params, data) {
-      slugifyUtils(data, 'Name', 'Slug');
+      displayNameUtils(data, 'Name');
+      slugifyUtils(data, 'DisplayName');
     },
   },
 };

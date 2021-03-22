@@ -30,11 +30,14 @@
     },
     "Slug": {
       "type": "string",
-      "required": true,
+      "required": false,
       "unique": true
     },
     "Children": {
       "collection": "product-catalogs"
+    },
+    "DisplayName": {
+      "type": "string"
     }
   }
 }

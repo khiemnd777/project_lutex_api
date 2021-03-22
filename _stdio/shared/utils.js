@@ -58,9 +58,24 @@ const slugifyUtils = (data, prop, slugProp) => {
   var slug = slugProp ? slugProp : "Slug";
   if (!data[slug] && !!data[prop]) {
     var slugVal = slugify(data[prop], { lower: true });
-    slugVal = slugVal.replace(/[\._\-]+$/g, '');
-    slugVal = slugVal.replace('.', '-');
+    slugVal = slugVal.replace(/[\._\-]+$/g, "");
+    slugVal = slugVal.replace(".", "-");
     data[slug] = slugVal;
+  }
+};
+
+const displayNameUtils = (data, prop, displayNameProp) => {
+  var displayName = displayNameProp ? displayNameProp : "DisplayName";
+  if (!data[displayName] && !!data[prop]) {
+    var displayNameVal = data[prop]
+      .replace(/(_|-)/g, " ")
+      .trim()
+      .replace(/\w\S*/g, function (str) {
+        return str.charAt(0).toUpperCase() + str.substr(1);
+      })
+      .replace(/([a-z])([A-Z])/g, "$1 $2")
+      .replace(/([A-Z])([A-Z][a-z])/g, "$1 $2");
+    data[displayName] = displayNameVal;
   }
 };
 
@@ -91,6 +106,7 @@ module.exports = {
   shuffleArray,
   toSeoModel,
   slugifyUtils,
+  displayNameUtils,
   googlePhotofy,
   testGooglePhotofy,
   propifyGooglePhoto,
