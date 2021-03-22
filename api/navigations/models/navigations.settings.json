@@ -12,7 +12,8 @@
   },
   "attributes": {
     "Name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Children": {
       "collection": "navigations"
