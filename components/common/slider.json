@@ -1,19 +1,19 @@
 {
-  "collectionName": "components_common_sliders",
+  "collectionName": "components_common_medias",
   "info": {
-    "name": "Slider",
+    "name": "Media",
     "icon": "ticket-alt",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "Name": {
+    "Caption": {
       "type": "string"
     },
-    "Description": {
+    "AlternativeText": {
       "type": "string"
     },
-    "Picture": {
+    "Media": {
       "model": "file",
       "via": "related",
       "allowedTypes": [

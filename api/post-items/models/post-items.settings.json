@@ -35,23 +35,15 @@
       "via": "Post_Items",
       "dominant": true
     },
-    "Slider": {
-      "collection": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
-      "plugin": "upload",
-      "required": false
+    "Media": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.slider"
     },
     "Cover": {
-      "collection": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
-      "plugin": "upload",
-      "required": false
+      "type": "component",
+      "repeatable": true,
+      "component": "common.slider"
     }
   }
 }
