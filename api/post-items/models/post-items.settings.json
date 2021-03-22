@@ -36,9 +36,22 @@
       "dominant": true
     },
     "Slider": {
-      "type": "component",
-      "repeatable": true,
-      "component": "common.slider"
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "Cover": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }
