@@ -71,7 +71,7 @@ const displayNameUtils = (data, prop, displayNameProp) => {
       .replace(/(_|-)/g, " ")
       .trim()
       .replace(/\w\S*/g, function (str) {
-        return str.charAt(0).toUpperCase() + str.substr(1);
+        return str.charAt(0) + str.substr(1);
       })
       .replace(/([a-z])([A-Z])/g, "$1 $2")
       .replace(/([A-Z])([A-Z][a-z])/g, "$1 $2");

@@ -44,6 +44,10 @@
       "type": "component",
       "repeatable": true,
       "component": "common.slider"
+    },
+    "Slug": {
+      "type": "string",
+      "unique": true
     }
   }
 }
