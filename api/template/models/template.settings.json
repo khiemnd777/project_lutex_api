@@ -20,11 +20,6 @@
       "repeatable": true,
       "component": "plugins.parameter"
     },
-    "Placeholders": {
-      "type": "component",
-      "repeatable": true,
-      "component": "plugins.placeholder"
-    },
     "FriendlyName": {
       "type": "string"
     },

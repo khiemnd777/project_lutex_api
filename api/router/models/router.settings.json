@@ -6,7 +6,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": false,
+    "draftAndPublish": true,
     "increments": true,
     "timestamps": true,
     "comment": ""
@@ -23,11 +23,6 @@
     },
     "template": {
       "model": "template"
-    },
-    "Placeholders": {
-      "type": "component",
-      "repeatable": true,
-      "component": "plugins.placeholder"
     },
     "Enabled": {
       "type": "boolean",
