@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_common_medias",
+  "info": {
+    "name": "Media",
+    "icon": "ticket-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Caption": {
+      "type": "string"
+    },
+    "AlternativeText": {
+      "type": "string"
+    },
+    "Media": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

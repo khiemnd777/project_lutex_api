@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "post_catalogs",
+  "info": {
+    "name": "Post Catalogs",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Children": {
+      "collection": "post-catalogs"
+    },
+    "DisplayName": {
+      "type": "string"
+    },
+    "Root": {
+      "type": "boolean",
+      "default": true
+    },
+    "DisplayOrder": {
+      "type": "integer",
+      "default": 0
+    },
+    "Icon": {
+      "type": "enumeration",
+      "enum": [
+        "icon_"
+      ]
+    },
+    "Slug": {
+      "type": "string",
+      "unique": true
+    },
+    "Post_Items": {
+      "via": "Catalogs",
+      "collection": "post-items"
+    }
+  }
+}

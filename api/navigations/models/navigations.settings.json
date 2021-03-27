@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "navigations",
+  "info": {
+    "name": "Navigations",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Children": {
+      "collection": "navigations"
+    },
+    "Root": {
+      "type": "boolean",
+      "default": true
+    },
+    "Enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "Icon": {
+      "type": "enumeration",
+      "enum": [
+        "icon_"
+      ]
+    },
+    "Path": {
+      "type": "string",
+      "default": "/",
+      "required": true,
+      "unique": true
+    },
+    "DisplayOrder": {
+      "type": "integer",
+      "default": 0
+    },
+    "DisplayName": {
+      "type": "string"
+    }
+  }
+}

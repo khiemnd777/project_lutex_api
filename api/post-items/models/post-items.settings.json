@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "post_items",
+  "info": {
+    "name": "Post Items",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Short": {
+      "type": "text"
+    },
+    "Body": {
+      "type": "richtext"
+    },
+    "Related_Items": {
+      "collection": "post-items"
+    },
+    "PostOn": {
+      "type": "datetime"
+    },
+    "PostOff": {
+      "type": "datetime"
+    },
+    "Catalogs": {
+      "collection": "post-catalogs",
+      "via": "Post_Items",
+      "dominant": true
+    },
+    "Media": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.slider"
+    },
+    "Cover": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.slider"
+    },
+    "Slug": {
+      "type": "string",
+      "unique": true
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "environments",
+  "info": {
+    "name": "Environment",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "PrivateToken": {
+      "type": "string"
+    },
+    "Theme": {
+      "type": "component",
+      "repeatable": false,
+      "component": "environment.theme"
+    }
+  }
+}

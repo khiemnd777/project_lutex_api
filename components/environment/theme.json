@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_environment_themes",
+  "info": {
+    "name": "Theme",
+    "icon": "border-all"
+  },
+  "options": {},
+  "attributes": {
+    "Theme": {
+      "model": "theme"
+    }
+  }
+}

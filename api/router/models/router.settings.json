@@ -6,13 +6,13 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": false,
+    "draftAndPublish": true,
     "increments": true,
     "timestamps": true,
     "comment": ""
   },
   "attributes": {
-    "Route": {
+    "Path": {
       "type": "string",
       "default": "index"
     },
@@ -24,11 +24,6 @@
     "template": {
       "model": "template"
     },
-    "Placeholders": {
-      "type": "component",
-      "repeatable": true,
-      "component": "plugins.placeholder"
-    },
     "Enabled": {
       "type": "boolean",
       "default": false
@@ -38,6 +33,9 @@
       "components": [
         "plugins.widget"
       ]
+    },
+    "Name": {
+      "type": "string"
     }
   }
 }

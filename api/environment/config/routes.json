@@ -1,0 +1,36 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/environment",
+      "handler": "environment.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/environment/datenow",
+      "handler": "environment.datenow",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/environment",
+      "handler": "environment.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/environment",
+      "handler": "environment.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

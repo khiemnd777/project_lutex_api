@@ -1,6 +1,6 @@
 "use strict";
 
-const { displayNameUtils } = require("../../../_stdio/shared/utils");
+const { slugifyUtils } = require("../../../_stdio/shared/utils");
 
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#lifecycle-hooks)
@@ -10,10 +10,10 @@ const { displayNameUtils } = require("../../../_stdio/shared/utils");
 module.exports = {
   lifecycles: {
     async beforeCreate(data) {
-      displayNameUtils(data, "Name", "FriendlyName");
+      slugifyUtils(data, "Title");
     },
     async beforeUpdate(params, data) {
-      displayNameUtils(data, "Name", "FriendlyName");
+      slugifyUtils(data, "Title");
     },
   },
 };
