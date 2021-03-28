@@ -16,7 +16,12 @@
       "required": true
     },
     "Children": {
-      "collection": "navigations"
+      "type": "dynamiczone",
+      "components": [
+        "navigation.catalog",
+        "navigation.others"
+      ],
+      "max": 1
     },
     "Root": {
       "type": "boolean",

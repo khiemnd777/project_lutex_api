@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_navigation_others",
+  "info": {
+    "name": "Others",
+    "icon": "list"
+  },
+  "options": {},
+  "attributes": {
+    "Children": {
+      "collection": "navigations"
+    }
+  }
+}
