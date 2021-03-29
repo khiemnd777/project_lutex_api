@@ -21,6 +21,11 @@
       "type": "component",
       "repeatable": false,
       "component": "environment.theme"
+    },
+    "Logo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.slider"
     }
   }
 }
