@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_about_uses",
+  "info": {
+    "name": "Home About Us",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Header": {
+      "type": "string"
+    },
+    "Media": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.slider"
+    },
+    "Enumeration": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.enumeration"
+    },
+    "Link": {
+      "type": "string"
+    },
+    "LinkText": {
+      "type": "string"
+    }
+  }
+}

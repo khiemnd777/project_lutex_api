@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_common_enumerations",
+  "info": {
+    "name": "Enumeration",
+    "icon": "list-ul"
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "string"
+    },
+    "MediaIcon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}
