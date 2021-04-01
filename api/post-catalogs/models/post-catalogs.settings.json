@@ -40,8 +40,21 @@
       "unique": true
     },
     "Post_Items": {
-      "via": "Catalogs",
-      "collection": "post-items"
+      "collection": "post-items",
+      "via": "Catalogs"
+    },
+    "FeaturePosts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "post.feature-post"
+    },
+    "FeatureCatalogs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "post.feature-catalog"
+    },
+    "Short": {
+      "type": "text"
     }
   }
 }

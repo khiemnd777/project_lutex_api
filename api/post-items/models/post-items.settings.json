@@ -31,8 +31,8 @@
       "type": "datetime"
     },
     "Catalogs": {
-      "collection": "post-catalogs",
       "via": "Post_Items",
+      "collection": "post-catalogs",
       "dominant": true
     },
     "Media": {
