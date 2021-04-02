@@ -39,7 +39,7 @@
       "type": "string",
       "unique": true
     },
-    "Post_Items": {
+    "Posts": {
       "collection": "post-items",
       "via": "Catalogs"
     },
@@ -55,6 +55,10 @@
     },
     "Short": {
       "type": "text"
+    },
+    "Hidden": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
