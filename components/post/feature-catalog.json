@@ -20,6 +20,9 @@
     },
     "Router": {
       "model": "router"
+    },
+    "BackgroundColor": {
+      "type": "string"
     }
   }
 }

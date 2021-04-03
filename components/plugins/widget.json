@@ -27,6 +27,11 @@
     },
     "BackgroundColor": {
       "type": "string"
+    },
+    "BackgroundImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.slider"
     }
   }
 }
