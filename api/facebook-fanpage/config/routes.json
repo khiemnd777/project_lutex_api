@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/facebook-fanpage",
+      "handler": "facebook-fanpage.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/facebook-fanpage",
+      "handler": "facebook-fanpage.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/facebook-fanpage",
+      "handler": "facebook-fanpage.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
