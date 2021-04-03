@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact_informations",
+  "info": {
+    "name": "Contact Information"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "Parameters": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.key-pair-value"
+    }
+  }
+}

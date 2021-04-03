@@ -19,6 +19,7 @@
       "type": "dynamiczone",
       "components": [
         "navigation.catalog",
+        "navigation.post",
         "navigation.others"
       ],
       "max": 1
@@ -44,6 +45,10 @@
     },
     "DisplayName": {
       "type": "string"
+    },
+    "ShownFooter": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
