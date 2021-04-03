@@ -2,7 +2,8 @@
   "collectionName": "components_common_key_pair_values",
   "info": {
     "name": "KeyPairValue",
-    "icon": "th-list"
+    "icon": "th-list",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -17,6 +18,9 @@
       "enum": [
         "icon_"
       ]
+    },
+    "Link": {
+      "type": "string"
     }
   }
 }
