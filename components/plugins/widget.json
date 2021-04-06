@@ -32,6 +32,9 @@
       "type": "component",
       "repeatable": false,
       "component": "common.slider"
+    },
+    "Name": {
+      "type": "string"
     }
   }
 }

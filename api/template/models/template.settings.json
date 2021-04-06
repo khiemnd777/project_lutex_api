@@ -24,10 +24,9 @@
       "type": "string"
     },
     "Widgets": {
-      "type": "dynamiczone",
-      "components": [
-        "plugins.widget"
-      ]
+      "type": "component",
+      "repeatable": true,
+      "component": "plugins.widget"
     }
   }
 }
