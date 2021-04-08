@@ -24,10 +24,6 @@
       ],
       "max": 1
     },
-    "Root": {
-      "type": "boolean",
-      "default": true
-    },
     "Icon": {
       "type": "enumeration",
       "enum": [
@@ -39,16 +35,8 @@
       "default": "/",
       "required": true
     },
-    "DisplayOrder": {
-      "type": "integer",
-      "default": 0
-    },
     "DisplayName": {
       "type": "string"
-    },
-    "ShownFooter": {
-      "type": "boolean",
-      "default": false
     }
   }
 }
