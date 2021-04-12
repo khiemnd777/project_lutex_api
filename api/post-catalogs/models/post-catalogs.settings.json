@@ -59,6 +59,9 @@
     "Hidden": {
       "type": "boolean",
       "default": false
+    },
+    "Router": {
+      "model": "router"
     }
   }
 }
