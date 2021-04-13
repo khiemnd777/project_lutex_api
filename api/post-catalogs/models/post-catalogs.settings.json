@@ -40,8 +40,8 @@
       "unique": true
     },
     "Posts": {
-      "collection": "post-items",
-      "via": "Catalogs"
+      "via": "Catalogs",
+      "collection": "post-items"
     },
     "FeaturePosts": {
       "type": "component",

@@ -45,9 +45,13 @@
       "unique": true
     },
     "Catalogs": {
-      "via": "Posts",
       "collection": "post-catalogs",
+      "via": "Posts",
       "dominant": true
+    },
+    "ViewCount": {
+      "type": "integer",
+      "default": 0
     }
   }
 }
