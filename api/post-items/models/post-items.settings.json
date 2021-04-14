@@ -44,14 +44,16 @@
       "type": "string",
       "unique": true
     },
-    "Catalogs": {
-      "collection": "post-catalogs",
-      "via": "Posts",
-      "dominant": true
-    },
     "ViewCount": {
       "type": "integer",
       "default": 0
+    },
+    "Router": {
+      "model": "router"
+    },
+    "Catalog": {
+      "model": "post-catalogs",
+      "via": "Posts"
     }
   }
 }

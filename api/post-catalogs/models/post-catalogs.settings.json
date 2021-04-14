@@ -39,10 +39,6 @@
       "type": "string",
       "unique": true
     },
-    "Posts": {
-      "via": "Catalogs",
-      "collection": "post-items"
-    },
     "FeaturePosts": {
       "type": "component",
       "repeatable": true,
@@ -62,6 +58,10 @@
     },
     "Router": {
       "model": "router"
+    },
+    "Posts": {
+      "via": "Catalog",
+      "collection": "post-items"
     }
   }
 }
