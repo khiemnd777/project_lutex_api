@@ -44,10 +44,6 @@
       "type": "string",
       "unique": true
     },
-    "ViewCount": {
-      "type": "integer",
-      "default": 0
-    },
     "Router": {
       "model": "router"
     },
