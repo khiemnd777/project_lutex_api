@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/post-item-likes",
+      "handler": "post-item-like.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/post-item-likes/count",
+      "handler": "post-item-like.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/post-item-likes/:id",
+      "handler": "post-item-like.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/post-item-likes",
+      "handler": "post-item-like.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/post-item-likes/:id",
+      "handler": "post-item-like.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/post-item-likes/:id",
+      "handler": "post-item-like.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
