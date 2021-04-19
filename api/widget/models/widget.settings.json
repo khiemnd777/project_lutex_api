@@ -15,10 +15,6 @@
     "Name": {
       "type": "string"
     },
-    "Enabled": {
-      "type": "boolean",
-      "default": false
-    },
     "FriendlyName": {
       "type": "string"
     },
