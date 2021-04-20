@@ -24,6 +24,17 @@
     "Enabled": {
       "type": "boolean",
       "default": false
+    },
+    "BackgroundColor": {
+      "type": "string"
+    },
+    "BackgroundImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.slider"
+    },
+    "Name": {
+      "type": "string"
     }
   }
 }

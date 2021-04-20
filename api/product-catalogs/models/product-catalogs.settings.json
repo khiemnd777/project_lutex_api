@@ -39,6 +39,9 @@
     },
     "DisplayName": {
       "type": "string"
+    },
+    "Description": {
+      "type": "string"
     }
   }
 }

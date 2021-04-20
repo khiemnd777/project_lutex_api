@@ -28,14 +28,13 @@
       "type": "boolean",
       "default": false
     },
-    "Widgets": {
-      "type": "dynamiczone",
-      "components": [
-        "plugins.widget"
-      ]
-    },
     "Name": {
       "type": "string"
+    },
+    "Widgets": {
+      "type": "component",
+      "repeatable": true,
+      "component": "plugins.widget"
     }
   }
 }

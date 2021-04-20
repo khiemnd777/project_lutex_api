@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "post_item_view_counts",
+  "info": {
+    "name": "Post Item View Count",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "Post": {
+      "model": "post-items"
+    },
+    "Key": {
+      "type": "string",
+      "unique": false,
+      "private": true
+    }
+  }
+}

@@ -2,7 +2,8 @@
   "collectionName": "components_navigation_others",
   "info": {
     "name": "Others",
-    "icon": "list"
+    "icon": "list",
+    "description": ""
   },
   "options": {},
   "attributes": {

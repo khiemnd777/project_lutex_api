@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_post_feature_catalogs",
+  "info": {
+    "name": "Feature Catalog",
+    "icon": "align-justify",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Catalog": {
+      "model": "post-catalogs"
+    },
+    "Media": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.slider"
+    },
+    "Router": {
+      "model": "router"
+    },
+    "BackgroundColor": {
+      "type": "string"
+    }
+  }
+}

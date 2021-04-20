@@ -1,0 +1,49 @@
+{
+  "kind": "singleType",
+  "collectionName": "facebook_fanpages",
+  "info": {
+    "name": "Facebook Fanpage",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "PageId": {
+      "type": "string"
+    },
+    "JavascriptSDK": {
+      "type": "string"
+    },
+    "PageName": {
+      "type": "string"
+    },
+    "Tabs": {
+      "type": "string"
+    },
+    "Width": {
+      "type": "string"
+    },
+    "Height": {
+      "type": "string"
+    },
+    "SmallHeader": {
+      "type": "boolean",
+      "default": false
+    },
+    "AdaptContainerWidth": {
+      "type": "boolean",
+      "default": true
+    },
+    "HideCover": {
+      "type": "boolean",
+      "default": false
+    },
+    "ShowFacepile": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

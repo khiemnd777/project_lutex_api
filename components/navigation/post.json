@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_navigation_posts",
+  "info": {
+    "name": "Post",
+    "icon": "clipboard-list",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Post": {
+      "model": "post-items"
+    },
+    "Router": {
+      "model": "router"
+    }
+  }
+}

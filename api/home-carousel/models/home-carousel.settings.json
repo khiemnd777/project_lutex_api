@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_carousels",
+  "info": {
+    "name": "Home Carousel"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "Media": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.slider"
+    }
+  }
+}

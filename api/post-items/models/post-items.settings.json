@@ -30,11 +30,6 @@
     "PostOff": {
       "type": "datetime"
     },
-    "Catalogs": {
-      "collection": "post-catalogs",
-      "via": "Post_Items",
-      "dominant": true
-    },
     "Media": {
       "type": "component",
       "repeatable": true,
@@ -48,6 +43,13 @@
     "Slug": {
       "type": "string",
       "unique": true
+    },
+    "Router": {
+      "model": "router"
+    },
+    "Catalog": {
+      "model": "post-catalogs",
+      "via": "Posts"
     }
   }
 }

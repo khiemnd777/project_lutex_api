@@ -39,8 +39,28 @@
       "type": "string",
       "unique": true
     },
-    "Post_Items": {
-      "via": "Catalogs",
+    "FeaturePosts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "post.feature-post"
+    },
+    "FeatureCatalogs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "post.feature-catalog"
+    },
+    "Short": {
+      "type": "text"
+    },
+    "Hidden": {
+      "type": "boolean",
+      "default": false
+    },
+    "Router": {
+      "model": "router"
+    },
+    "Posts": {
+      "via": "Catalog",
       "collection": "post-items"
     }
   }

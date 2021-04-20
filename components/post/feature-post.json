@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_post_feature_posts",
+  "info": {
+    "name": "Feature Post",
+    "icon": "cat",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Media": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.slider"
+    },
+    "Post": {
+      "model": "post-items"
+    },
+    "Router": {
+      "model": "router"
+    }
+  }
+}

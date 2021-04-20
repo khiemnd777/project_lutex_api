@@ -1,36 +1,36 @@
 {
   "kind": "singleType",
-  "collectionName": "environments",
+  "collectionName": "home_about_uses",
   "info": {
-    "name": "Environment",
+    "name": "Home About Us",
     "description": ""
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "attributes": {
-    "Name": {
+    "Title": {
       "type": "string"
     },
-    "PrivateToken": {
+    "Header": {
       "type": "string"
     },
-    "Theme": {
+    "Media": {
       "type": "component",
-      "repeatable": false,
-      "component": "environment.theme"
-    },
-    "Logo": {
-      "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "common.slider"
     },
-    "Copyright": {
+    "Enumeration": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.enumeration"
+    },
+    "Link": {
       "type": "string"
     },
-    "PoweredBy": {
+    "LinkText": {
       "type": "string"
     }
   }

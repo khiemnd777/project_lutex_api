@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "post_item_likes",
+  "info": {
+    "name": "Post Item Like",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "Key": {
+      "type": "string",
+      "private": true,
+      "unique": true
+    },
+    "Post": {
+      "model": "post-items"
+    }
+  }
+}
