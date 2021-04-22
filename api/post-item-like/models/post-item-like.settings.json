@@ -13,8 +13,8 @@
   "attributes": {
     "Key": {
       "type": "string",
-      "private": true,
-      "unique": true
+      "private": false,
+      "unique": false
     },
     "Post": {
       "model": "post-items"
