@@ -9,10 +9,6 @@ const { seoCollection } = require("../../../_stdio/shared/utils");
 
 module.exports = {
   async seo(ctx) {
-    return await seoCollection("post-items", { Slug: ctx.params.slug }, [
-      "Catalog",
-      "Router",
-      "Related_Items",
-    ]);
+    return await seoCollection("post-items", { Slug: ctx.params.slug }, []);
   },
 };
