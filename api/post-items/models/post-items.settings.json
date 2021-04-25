@@ -50,6 +50,11 @@
     "Catalog": {
       "model": "post-catalogs",
       "via": "Posts"
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.common"
     }
   }
 }

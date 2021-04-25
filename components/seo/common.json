@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_seo_commons",
+  "info": {
+    "name": "Seo",
+    "icon": "baby-carriage",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Facebook": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.facebook"
+    }
+  }
+}
