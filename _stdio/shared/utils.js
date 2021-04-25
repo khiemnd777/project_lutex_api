@@ -99,6 +99,20 @@ const propifyGooglePhoto = (data, prop) => {
   }
 };
 
+const seo = async (entityName, filter, populate) => {
+  return await strapi.services[entityName].find(filter, populate);
+}
+
+const seoCollection = async (entityName, filter, populate) => {
+  const entities = await seo(entityName, filter, populate);
+  return entities ? entities[0] && entities[0].Seo : null;
+};
+
+const seoSingle = async (entityName, filter, populate) => {
+  const entity = await seo(entityName, filter, populate);
+  return entity ? entity.Seo : null;
+};
+
 module.exports = {
   random,
   toSanitizedModel,
@@ -111,4 +125,6 @@ module.exports = {
   testGooglePhotofy,
   propifyGooglePhoto,
   mergeObjects,
+  seoCollection,
+  seoSingle
 };
