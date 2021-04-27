@@ -2028,6 +2028,14 @@ apollo-cache-control@^0.11.6:
     apollo-server-env "^3.0.0"
     apollo-server-plugin-base "^0.10.4"
 
+apollo-cache-control@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/apollo-cache-control/-/apollo-cache-control-0.12.0.tgz#45aea0a232d0704e33c2b1a3c428a5500b29818c"
+  integrity sha512-kClF5rfAm159Nboul1LxA+l58Tjz0M8L1GUknEMpZt0UHhILLAn3BfcG3ToX4TbNoR9M57kKMUcbPWLdy3Up7w==
+  dependencies:
+    apollo-server-env "^3.0.0"
+    apollo-server-plugin-base "^0.11.0"
+
 apollo-datasource@^0.7.3:
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/apollo-datasource/-/apollo-datasource-0.7.3.tgz#c824eb1457bdee5a3173ced0e35e594547e687a0"
@@ -2071,10 +2079,27 @@ apollo-reporting-protobuf@^0.6.2:
   dependencies:
     "@apollo/protobufjs" "^1.0.3"
 
+apollo-server-cache-redis@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/apollo-server-cache-redis/-/apollo-server-cache-redis-1.4.0.tgz#30b66dc6743aa3edd2ba02f2883d166df8a7f07e"
+  integrity sha512-Vt5nXzxCsvVDqFWDDEZi42+s6yy17T/c6q7ESUGbn3sBCn0nyEY/x2TAxmmjy9rsx8oTScBUIgi55Mb5qMXV+A==
+  dependencies:
+    apollo-server-caching "^0.6.0"
+    apollo-server-env "^3.0.0"
+    dataloader "^2.0.0"
+    ioredis "^4.0.0"
+
 apollo-server-caching@^0.5.3:
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/apollo-server-caching/-/apollo-server-caching-0.5.3.tgz#cf42a77ad09a46290a246810075eaa029b5305e1"
   integrity sha512-iMi3087iphDAI0U2iSBE9qtx9kQoMMEWr6w+LwXruBD95ek9DWyj7OeC2U/ngLjRsXM43DoBDXlu7R+uMjahrQ==
+  dependencies:
+    lru-cache "^6.0.0"
+
+apollo-server-caching@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/apollo-server-caching/-/apollo-server-caching-0.6.0.tgz#3140a023ce0be8c43ba0b2f5be9cc5d15d1a32f6"
+  integrity sha512-SfjKaccrhRzUQ8TAke9FrYppp4pZV3Rp8KCs+4Ox3kGtbco68acRPJkiYYtSVc4idR8XNAUOOVfAEZVNHdZQKQ==
   dependencies:
     lru-cache "^6.0.0"
 
@@ -2160,6 +2185,22 @@ apollo-server-plugin-base@^0.10.4:
   dependencies:
     apollo-server-types "^0.6.3"
 
+apollo-server-plugin-base@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/apollo-server-plugin-base/-/apollo-server-plugin-base-0.11.0.tgz#6ceeb4d5f643ed739fd00e8b26d9981186c200d0"
+  integrity sha512-Du68x0XCyQ6EWlgoL9Z+1s8fJfXgY131QbKP7ao617StQPzwB0aGCwxBDfcMt1A75VXf4TkvV1rdUH5YeJFlhQ==
+  dependencies:
+    apollo-server-types "^0.7.0"
+
+apollo-server-plugin-response-cache@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/apollo-server-plugin-response-cache/-/apollo-server-plugin-response-cache-0.7.0.tgz#99e4eaf9dddd820e9ef8aac197740c5386f7833a"
+  integrity sha512-FLM3cD9sZAC1mKJmoxCTKhnh45ZDJKS2gTe3tQj5Hht/BHowbKdlYUKB1Vz1BV+soewo0O2s7VWXzsOWjP/kJg==
+  dependencies:
+    apollo-cache-control "^0.12.0"
+    apollo-server-caching "^0.6.0"
+    apollo-server-plugin-base "^0.11.0"
+
 apollo-server-types@^0.6.2, apollo-server-types@^0.6.3:
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/apollo-server-types/-/apollo-server-types-0.6.3.tgz#f7aa25ff7157863264d01a77d7934aa6e13399e8"
@@ -2167,6 +2208,15 @@ apollo-server-types@^0.6.2, apollo-server-types@^0.6.3:
   dependencies:
     apollo-reporting-protobuf "^0.6.2"
     apollo-server-caching "^0.5.3"
+    apollo-server-env "^3.0.0"
+
+apollo-server-types@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/apollo-server-types/-/apollo-server-types-0.7.0.tgz#a9b62974ada5da5edb6157a41d8ddb993b57203a"
+  integrity sha512-pJ6ri2N4xJ+e2PUUPHeCNpMDzHUagJyn0DDZGQmXDz6aoMlSd4B2KUvK81hHyHkw3wHk9clgcpfM9hKqbfZweA==
+  dependencies:
+    apollo-reporting-protobuf "^0.6.2"
+    apollo-server-caching "^0.6.0"
     apollo-server-env "^3.0.0"
 
 apollo-tracing@^0.12.2:
@@ -3137,6 +3187,11 @@ clsx@^1.0.4:
   resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.1.1.tgz#98b3134f9abbdf23b2663491ace13c5c03a73188"
   integrity sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==
 
+cluster-key-slot@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/cluster-key-slot/-/cluster-key-slot-1.1.0.tgz#30474b2a981fb12172695833052bc0d01336d10d"
+  integrity sha512-2Nii8p3RwAPiFwsnZvukotvow2rIHM+yQ6ZcBXGHdniadkYGZYiGmkHJIbZPIV9nfv7m/U1IPMVVcAhoWFeklw==
+
 co-body@^5.1.1:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/co-body/-/co-body-5.2.0.tgz#5a0a658c46029131e0e3a306f67647302f71c124"
@@ -3633,12 +3688,17 @@ dataloader@^1.4.0:
   resolved "https://registry.yarnpkg.com/dataloader/-/dataloader-1.4.0.tgz#bca11d867f5d3f1b9ed9f737bd15970c65dff5c8"
   integrity sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==
 
+dataloader@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/dataloader/-/dataloader-2.0.0.tgz#41eaf123db115987e21ca93c005cd7753c55fe6f"
+  integrity sha512-YzhyDAwA4TaQIhM5go+vCLmU0UikghC/t9DTQYZR2M/UvZ1MdOhPezSDZcjj9uqQJOMqjLcpWtyW2iNINdlatQ==
+
 date-fns@^2.19.0:
   version "2.19.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.19.0.tgz#65193348635a28d5d916c43ec7ce6fbd145059e1"
   integrity sha512-X3bf2iTPgCAQp9wvjOQytnf5vO5rESYRXlPIVcgSbtT5OTScPcsf9eZU+B/YIkKAtYr5WeCii58BgATrNitlWg==
 
-debug@*, debug@4, debug@^4.1.0, debug@^4.1.1:
+debug@*, debug@4, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.1.tgz#f0d229c505e0c6d8c49ac553d1b13dc183f6b2ee"
   integrity sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ==
@@ -3818,7 +3878,7 @@ delegates@1.0.0, delegates@^1.0.0:
   resolved "https://registry.yarnpkg.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
   integrity sha1-hMbhWbgZBP3KWaDvRM2HDTElD5o=
 
-denque@^1.4.1:
+denque@^1.1.0, denque@^1.4.1:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/denque/-/denque-1.5.0.tgz#773de0686ff2d8ec2ff92914316a47b73b1c73de"
   integrity sha512-CYiCSgIF1p6EUByQPlGkKnP1M9g0ZV3qMIrqMqZqdwazygIA/YP2vrbcyl1h/WppKJTdl1F85cXIle+394iDAQ==
@@ -5630,6 +5690,22 @@ invariant@^2.2.1, invariant@^2.2.4:
   dependencies:
     loose-envify "^1.0.0"
 
+ioredis@^4.0.0:
+  version "4.27.1"
+  resolved "https://registry.yarnpkg.com/ioredis/-/ioredis-4.27.1.tgz#4ef947b455a1b995baa4b0d7e2c4e4f75f746421"
+  integrity sha512-PaFNFeBbOcEYHXAdrJuy7uesJcyvzStTM1aYMchTuky+VgKqDbXhnTJHaDsjAwcTwPx8Asatx+l2DW8zZ2xlsQ==
+  dependencies:
+    cluster-key-slot "^1.1.0"
+    debug "^4.3.1"
+    denque "^1.1.0"
+    lodash.defaults "^4.2.0"
+    lodash.flatten "^4.4.0"
+    p-map "^2.1.0"
+    redis-commands "1.7.0"
+    redis-errors "^1.2.0"
+    redis-parser "^3.0.0"
+    standard-as-callback "^2.1.0"
+
 ip-regex@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/ip-regex/-/ip-regex-2.1.0.tgz#fa78bf5d2e6913c911ce9f819ee5146bb6d844e9"
@@ -6539,6 +6615,16 @@ lodash.deburr@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/lodash.deburr/-/lodash.deburr-4.1.0.tgz#ddb1bbb3ef07458c0177ba07de14422cb033ff9b"
   integrity sha1-3bG7s+8HRYwBd7oH3hRCLLAz/5s=
+
+lodash.defaults@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/lodash.defaults/-/lodash.defaults-4.2.0.tgz#d09178716ffea4dde9e5fb7b37f6f0802274580c"
+  integrity sha1-0JF4cW/+pN3p5ft7N/bwgCJ0WAw=
+
+lodash.flatten@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.flatten/-/lodash.flatten-4.4.0.tgz#f31c22225a9632d2bbf8e4addbef240aa765a61f"
+  integrity sha1-8xwiIlqWMtK7+OSt2+8kCqdlph8=
 
 lodash.includes@^4.3.0:
   version "4.3.0"
@@ -7592,7 +7678,7 @@ p-map@4.0.0:
   dependencies:
     aggregate-error "^3.0.0"
 
-p-map@^2.0.0:
+p-map@^2.0.0, p-map@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/p-map/-/p-map-2.1.0.tgz#310928feef9c9ecc65b68b17693018a665cea175"
   integrity sha512-y3b8Kpd8OAN444hxfBbFfj1FY/RjtTd8tzYwhUqNYXx0fXx2iX4maP4Qr6qhIKbQXI02wTLAda4fYUbDagTUFw==
@@ -8620,7 +8706,7 @@ recast@~0.11.12:
     private "~0.1.5"
     source-map "~0.5.0"
 
-redis-commands@*, redis-commands@^1.5.0:
+redis-commands@*, redis-commands@1.7.0, redis-commands@^1.5.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/redis-commands/-/redis-commands-1.7.0.tgz#15a6fea2d58281e27b1cd1acfb4b293e278c3a89"
   integrity sha512-nJWqw3bTFy21hX/CPKHth6sfhZbdiHP6bTawSgQBlKOVRG7EZkfHbbHwQJnrE4vsQf0CMNE+3gJ4Fmm16vdVlQ==
@@ -9551,6 +9637,11 @@ stackframe@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/stackframe/-/stackframe-1.2.0.tgz#52429492d63c62eb989804c11552e3d22e779303"
   integrity sha512-GrdeshiRmS1YLMYgzF16olf2jJ/IzxXY9lhKOskuVziubpTYcYqyOwYeJKzQkwy7uN0fYSsbsC4RQaXf9LCrYA==
+
+standard-as-callback@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/standard-as-callback/-/standard-as-callback-2.1.0.tgz#8953fc05359868a77b5b9739a665c5977bb7df45"
+  integrity sha512-qoRRSyROncaz1z0mvYqIE4lCd9p2R90i6GxW3uZv5ucSu8tU7B5HXUP1gG8pVZsYNVaXjk8ClXHPttLyxAL48A==
 
 static-extend@^0.1.1:
   version "0.1.2"
