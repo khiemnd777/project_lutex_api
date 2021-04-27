@@ -17,6 +17,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/environment/theme",
+      "handler": "environment.theme",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/environment",
       "handler": "environment.update",
