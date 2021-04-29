@@ -40,10 +40,6 @@
       "repeatable": true,
       "component": "common.slider"
     },
-    "Slug": {
-      "type": "string",
-      "unique": true
-    },
     "Router": {
       "model": "router"
     },
@@ -55,6 +51,10 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.common"
+    },
+    "Slug": {
+      "type": "uid",
+      "required": true
     }
   }
 }

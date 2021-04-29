@@ -35,10 +35,6 @@
         "icon_"
       ]
     },
-    "Slug": {
-      "type": "string",
-      "unique": true
-    },
     "FeaturePosts": {
       "type": "component",
       "repeatable": true,
@@ -62,6 +58,10 @@
     "Posts": {
       "via": "Catalog",
       "collection": "post-items"
+    },
+    "Slug": {
+      "type": "uid",
+      "required": true
     }
   }
 }

@@ -59,6 +59,8 @@ const slugifyUtils = (data, prop, slugProp) => {
   if (!data[slug] && !!data[prop]) {
     var slugVal = slugify(data[prop], { lower: true });
     slugVal = slugVal.replace(/[\._\-]+$/g, "");
+    slugVal = slugVal.replace("'s", "");
+    slugVal = slugVal.replace("'", "");
     slugVal = slugVal.replace(".", "-");
     data[slug] = slugVal;
   }

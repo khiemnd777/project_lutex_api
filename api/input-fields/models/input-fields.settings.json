@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "input_fields",
+  "info": {
+    "name": "Input Fields",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "InputFields": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.input-fields"
+    },
+    "Name": {
+      "type": "uid",
+      "required": true
+    },
+    "DisplayName": {
+      "type": "string"
+    }
+  }
+}

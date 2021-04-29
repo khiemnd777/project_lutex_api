@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_common_input_fields",
+  "info": {
+    "name": "InputFields",
+    "icon": "pen",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "text",
+        "longtext",
+        "email"
+      ],
+      "default": "text"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Required": {
+      "type": "boolean",
+      "default": false
+    },
+    "Placeholder": {
+      "type": "string"
+    },
+    "DefaultValue": {
+      "type": "text"
+    }
+  }
+}
