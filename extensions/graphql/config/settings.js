@@ -1,13 +1,13 @@
-const apolloServerPluginResponseCache = require('apollo-server-plugin-response-cache')
-const { RedisCache } = require('apollo-server-cache-redis')
+const apolloServerPluginResponseCache = require("apollo-server-plugin-response-cache");
+const { RedisCache } = require("apollo-server-cache-redis");
 
 // set this to whatever you believe should be the max age for your cache control
-const MAX_AGE = 60
+const MAX_AGE = 60;
 
 module.exports = {
   federation: false,
   apolloServer: {
-    tracing: 'production' !== strapi.config.environment ? true : false,
+    tracing: "production" !== strapi.config.environment ? true : false,
     persistedQueries: { ttl: 10 * MAX_AGE }, // we set this to be a factor of 10, somewhat arbitrary
     cacheControl: { defaultMaxAge: MAX_AGE },
     plugins: [
@@ -17,30 +17,42 @@ module.exports = {
         extraCacheKeyData,
         sessionId,
       }),
-      injectCacheControl()
-    ]
-  }
-}
+      injectCacheControl(),
+    ],
+  },
+};
 
-if ('development' !== strapi.config.environment && process.env.REDIS_URL) {
-  const cache = new RedisCache(process.env.REDIS_URL)
-  module.exports.apolloServer.cache = cache
-  module.exports.apolloServer.persistedQueries.cache = cache
+if ("development" !== strapi.config.environment && process.env.REDIS_URL) {
+  const cache = new RedisCache(process.env.REDIS_URL);
+  module.exports.apolloServer.cache = cache;
+  module.exports.apolloServer.persistedQueries.cache = cache;
 }
 
 async function sessionId(requestContext) {
   // return a session ID here, if there is one for this request
-  return null
+  return null;
 }
 
 async function shouldReadFromCache(requestContext) {
   // decide if we should write to the cache in this request
-  return true
+  const operationName = requestContext.request.operationName;
+  if (operationName) {
+    if (operationName.match(/_no_*[Cc]ache$/i)) {
+      return false;
+    }
+  }
+  return true;
 }
 
 async function shouldWriteToCache(requestContext) {
   // decide if we should write to the cache in this request
-  return true
+  const operationName = requestContext.request.operationName;
+  if (operationName) {
+    if (operationName.match(/_no_*[Cc]ache$/i)) {
+      return false;
+    }
+  }
+  return true;
 }
 
 async function extraCacheKeyData(requestContext) {
@@ -51,9 +63,9 @@ function injectCacheControl() {
   return {
     requestDidStart(requestContext) {
       requestContext.overallCachePolicy = {
-        scope: 'PUBLIC', // or 'PRIVATE'
+        scope: "PUBLIC", // or 'PRIVATE'
         maxAge: MAX_AGE,
-      }
-    }
-  }
+      };
+    },
+  };
 }
