@@ -15,7 +15,7 @@ module.exports = {
     async beforeCreate(data) {
       displayNameUtils(data, "Name");
       slugifyUtils(data, "DisplayName", "Name");
-      data.InputFields.forEach((inputField) => {
+      data.InputFields && data.InputFields.forEach((inputField) => {
         displayNameUtils(inputField, "Name", "Title");
         slugifyUtils(inputField, "Title", "Name");
       });
@@ -23,7 +23,8 @@ module.exports = {
     async beforeUpdate(params, data) {
       displayNameUtils(data, "Name");
       slugifyUtils(data, "DisplayName", "Name");
-      data.InputFields.forEach((inputField) => {
+      strapi.log.debug(JSON.stringify(data));
+      data.InputFields && data.InputFields.forEach((inputField) => {
         displayNameUtils(inputField, "Name", "Title");
         slugifyUtils(inputField, "Title", "Name");
       });
