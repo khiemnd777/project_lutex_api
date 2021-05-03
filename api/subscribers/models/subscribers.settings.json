@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subscribers",
+  "info": {
+    "name": "Subscribers"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    }
+  }
+}
