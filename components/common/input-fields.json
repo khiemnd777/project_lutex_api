@@ -31,6 +31,10 @@
     },
     "DefaultValue": {
       "type": "text"
+    },
+    "VisibleTitle": {
+      "type": "boolean",
+      "default": true
     }
   }
 }
