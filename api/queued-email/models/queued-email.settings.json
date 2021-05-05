@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "queued_emails",
+  "info": {
+    "name": "Queued Email",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "From": {
+      "type": "email"
+    },
+    "FromName": {
+      "type": "string"
+    },
+    "To": {
+      "type": "email"
+    },
+    "ToName": {
+      "type": "string"
+    },
+    "Cc": {
+      "type": "email"
+    },
+    "Bcc": {
+      "type": "email"
+    },
+    "Subject": {
+      "type": "string"
+    },
+    "Body": {
+      "type": "richtext"
+    },
+    "SendImmediately": {
+      "type": "boolean",
+      "default": true
+    },
+    "SentOn": {
+      "type": "datetime"
+    },
+    "EmailAccount": {
+      "model": "email-account"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/queued-emails",
+      "handler": "queued-email.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/queued-emails/count",
+      "handler": "queued-email.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/queued-emails/:id",
+      "handler": "queued-email.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/queued-emails",
+      "handler": "queued-email.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/queued-emails/:id",
+      "handler": "queued-email.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/queued-emails/:id",
+      "handler": "queued-email.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

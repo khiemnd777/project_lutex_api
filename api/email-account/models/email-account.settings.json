@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "email_accounts",
+  "info": {
+    "name": "Email Account",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "Email": {
+      "type": "email",
+      "required": true
+    },
+    "DisplayName": {
+      "type": "string"
+    },
+    "Host": {
+      "type": "string"
+    },
+    "Port": {
+      "type": "integer"
+    },
+    "Secure": {
+      "type": "boolean",
+      "default": false
+    },
+    "User": {
+      "type": "string"
+    },
+    "Password": {
+      "type": "password"
+    },
+    "Provider": {
+      "type": "enumeration",
+      "enum": [
+        "Gmail",
+        "Hotmail",
+        "Yahoo",
+        "Zoho",
+        "iCloud"
+      ]
+    },
+    "IsDefault": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
