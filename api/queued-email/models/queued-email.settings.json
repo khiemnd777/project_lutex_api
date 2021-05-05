@@ -44,6 +44,10 @@
     },
     "EmailAccount": {
       "model": "email-account"
+    },
+    "MaxSendTries": {
+      "type": "integer",
+      "private": true
     }
   }
 }

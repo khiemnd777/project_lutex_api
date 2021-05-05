@@ -6,7 +6,10 @@ const random = (list) => {
 };
 
 const toSanitizedModels = (list, model) => {
-  return list.map((entity) => toSanitizedModel(entity, model));
+  if (list && Array.isArray(list)) {
+    return list.map((entity) => toSanitizedModel(entity, model));
+  }
+  return list;
 };
 
 const toSanitizedModel = (entity, model) => {
@@ -103,7 +106,7 @@ const propifyGooglePhoto = (data, prop) => {
 
 const seo = async (entityName, filter, populate) => {
   return await strapi.services[entityName].find(filter, populate);
-}
+};
 
 const seoCollection = async (entityName, filter, populate) => {
   const entities = await seo(entityName, filter, populate);
@@ -128,5 +131,5 @@ module.exports = {
   propifyGooglePhoto,
   mergeObjects,
   seoCollection,
-  seoSingle
+  seoSingle,
 };
