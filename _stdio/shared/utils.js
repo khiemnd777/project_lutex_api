@@ -27,6 +27,10 @@ const shuffleArray = (arr) => {
   );
 };
 
+const isArray = (arr) => {
+  return !!arr && Array.isArray(arr);
+};
+
 const mergeObjects = (target, source, base) => {
   const baseSource = base || source;
   for (const key in baseSource) {
@@ -123,6 +127,7 @@ module.exports = {
   toSanitizedModel,
   toSanitizedModels,
   shuffleArray,
+  isArray,
   toSeoModel,
   slugifyUtils,
   displayNameUtils,

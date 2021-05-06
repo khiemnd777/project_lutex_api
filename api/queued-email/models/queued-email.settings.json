@@ -45,7 +45,7 @@
     "EmailAccount": {
       "model": "email-account"
     },
-    "MaxSendTries": {
+    "SendTries": {
       "type": "integer",
       "private": true
     }

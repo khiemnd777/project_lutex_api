@@ -46,7 +46,7 @@ module.exports = {
       params["To"] = to;
     }
     if (maxSendTries) {
-      params["MaxSendTries_lt"] = maxSendTries;
+      params["SendTries_lt"] = maxSendTries;
     }
     if (loadNewest) {
       params["_sort"] = "createdAt:desc";
