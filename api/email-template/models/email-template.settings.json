@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "email_templates",
+  "info": {
+    "name": "Email Template",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Subject": {
+      "type": "string"
+    },
+    "Body": {
+      "type": "richtext"
+    },
+    "EmailAccount": {
+      "model": "email-account"
+    },
+    "SendImmediately": {
+      "type": "boolean",
+      "default": true
+    },
+    "Bcc": {
+      "type": "string"
+    }
+  }
+}
