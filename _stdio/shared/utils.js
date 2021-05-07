@@ -122,6 +122,55 @@ const seoSingle = async (entityName, filter, populate) => {
   return entity ? entity.Seo : null;
 };
 
+const find = async (entityName, filter, populate) => {
+  return await strapi.services[entityName].find(filter, populate);
+};
+
+const firstOrDefault = async (entityName, filter, populate) => {
+  const entity = await find(entityName, filter, populate);
+  if (entity) {
+    if (isArray(entity)) {
+      return entity[0];
+    }
+    return entity;
+  }
+  return null;
+};
+
+const generateTokenizedKey = (builtKey, token) => {
+  let indicatedKey = builtKey;
+  for (const key in token) {
+    indicatedKey += `[${key}]`;
+    indicatedKey += generateTokenizedKey(indicatedKey, token[key]);
+  }
+  return indicatedKey;
+};
+
+const toTokenizedObject = (tokenizedData) => {
+  const result = {};
+  if (isArray(tokenizedData)) {
+    tokenizedData.forEach((token) => {
+      for (const key in token) {
+        let builtKey = key;
+        const tokenizedValue = token[key];
+        // if is array
+        if (isArray(tokenizedValue)) {
+          for (let inx = 0; inx < tokenizedValue.length; inx++) {
+            builtKey += `[${inx}]`;
+          }
+          continue;
+        }
+        // if is object
+        if ("object" === typeof tokenizedValue) {
+          continue;
+        }
+        // the other ways.
+      }
+    })
+  }
+  return null;
+};
+
 module.exports = {
   random,
   toSanitizedModel,
@@ -137,4 +186,6 @@ module.exports = {
   mergeObjects,
   seoCollection,
   seoSingle,
+  find,
+  firstOrDefault
 };

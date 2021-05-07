@@ -14,6 +14,7 @@
     "apollo-server-cache-redis": "^1.4.0",
     "apollo-server-plugin-response-cache": "^0.7.0",
     "marked": "^2.0.3",
+    "mustache": "^4.2.0",
     "nodemailer": "^6.6.0",
     "slugify": "^1.4.7",
     "strapi": "3.5.3",
