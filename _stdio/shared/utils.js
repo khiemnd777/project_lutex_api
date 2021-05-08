@@ -31,6 +31,10 @@ const isArray = (arr) => {
   return !!arr && Array.isArray(arr);
 };
 
+const arraySize = (arr) => {
+  return isArray(arr) ? arr.length : 0;
+}
+
 const mergeObjects = (target, source, base) => {
   const baseSource = base || source;
   for (const key in baseSource) {
@@ -183,6 +187,7 @@ module.exports = {
   toSanitizedModels,
   shuffleArray,
   isArray,
+  arraySize,
   toSeoModel,
   slugifyUtils,
   displayNameUtils,

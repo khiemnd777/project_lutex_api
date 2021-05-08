@@ -1,4 +1,5 @@
-const { firstOrDefault, isArray } = require("../../shared/utils");
+const Mustache = require("mustache");
+const { isArray } = require("../../shared/utils");
 const tokenizer = require("./tokenizer");
 
 const extractTokens = (content) => {
@@ -49,6 +50,7 @@ const prepareReplacedTokens = (content) => {
       };
     });
   }
+  return [];
 };
 
 const buildTokens = async (content) => {
@@ -100,8 +102,27 @@ const buildTokens = async (content) => {
   return null;
 };
 
+const renderContent = async (content) => {
+  let replacedContent = content;
+  const contentBuiltTokens = await buildTokens(content);
+  if (contentBuiltTokens) {
+    const replacedTokens = prepareReplacedTokens(content);
+    if (replacedTokens.length) {
+      replacedTokens.forEach((replacedToken) => {
+        replacedContent = content.replace(
+          replacedToken.token,
+          replacedToken.replacedToken
+        );
+      });
+    }
+    return Mustache.render(replacedContent, contentBuiltTokens);
+  }
+  return replacedContent;
+};
+
 module.exports = {
   prepareReplacedTokens,
   extractTokens,
   buildTokens,
+  renderContent,
 };

@@ -2,13 +2,14 @@ const { isArray } = require("../../shared/utils");
 const EmailSender = require("../messages/email-sender");
 
 module.exports = {
-  async execute(maxSendTries) {
+  async execute() {
+    const maxSendTries = 3;
     const queuedEmailService = strapi.services["queued-email"];
     const queuedEmails = await queuedEmailService.searchEmails(
       null, // from,
       null, // to,
       true, // loadNotSentItemsYetOnly,
-      maxSendTries || 3, // maxSendTries,
+      maxSendTries, // maxSendTries,
       true, // loadNewest,
       0, // pageIndex,
       500, // pageSize

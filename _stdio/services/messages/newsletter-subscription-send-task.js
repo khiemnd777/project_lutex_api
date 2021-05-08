@@ -1,33 +1,33 @@
-var Mustache = require("mustache");
-const { isArray } = require("../../shared/utils");
-const {
-  extractTokens,
-  prepareReplacedTokens,
-  buildTokens,
-} = require("./token-builder");
-
 module.exports = {
   async execute() {
+    const subscribersService = strapi.services["subscribers"];
     const emailTemplateService = strapi.services["email-template"];
-    const emailTemplate = await emailTemplateService.getEmailTemplateByName(
+    const queuedEmailService = strapi.services["queued-email"];
+    const emailAccountService = strapi.services["email-account"];
+    // Default email account.
+    const defaultEmailAccount = await emailAccountService.getEmailAsDefault();
+    if (!defaultEmailAccount) return;
+    const modelForSending = await emailTemplateService.prepareEmailTemplateForSending(
       "Newsletter.Subscription"
     );
-    if (emailTemplate) {
-      const body = emailTemplate.Body;
-      let replacedBody = body;
-      const builtTokens = await buildTokens(body);
-      if (builtTokens) {
-        const replacedTokens = prepareReplacedTokens(body);
-        if (replacedTokens.length) {
-          replacedTokens.forEach((replacedToken) => {
-            replacedBody = body.replace(
-              replacedToken.token,
-              replacedToken.replacedToken
-            );
-          });
-        }
-        const bodyWithTokens = Mustache.render(replacedBody, builtTokens);
-      }
-    }
+    if (!modelForSending) return;
+    // Subcribers.
+    const subscribers = await subscribersService.find();
+    if (!subscribers.length) return;
+    // Email template.
+    subscribers.forEach(async (subscriber) => {
+      await queuedEmailService.insertQueuedEmail({
+        From: defaultEmailAccount.Email,
+        FromName: defaultEmailAccount.DisplayName,
+        To: subscriber.Email,
+        Bcc: modelForSending.bcc,
+        Subject: modelForSending.subject,
+        Body: modelForSending.body,
+        SendImmediately: modelForSending.sendImmediately,
+        EmailAccount: {
+          id: defaultEmailAccount.id,
+        },
+      });
+    });
   },
 };

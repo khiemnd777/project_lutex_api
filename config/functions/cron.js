@@ -1,5 +1,6 @@
 "use strict";
 
+const newsletterSubscriptionSendTask = require("../../_stdio/services/messages/newsletter-subscription-send-task");
 const queuedEmailSendTask = require("../../_stdio/services/messages/queued-email-send-task");
 
 /**
@@ -12,10 +13,22 @@ const queuedEmailSendTask = require("../../_stdio/services/messages/queued-email
  * See more details here: https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/configurations.html#cron-tasks
  */
 module.exports = {
-  // Queued email send task
+  /** 
+   * Queued email send task
+   * Every 1 minute
+   */ 
   "0 1 * * * *": {
     task: () => {
-      queuedEmailSendTask.execute(3);
+      queuedEmailSendTask.execute();
+    },
+  },
+  /**
+   * Newsletter subscription task
+   * Every monday at 5am
+   */
+  "0 0 5 * * 1": {
+    task: () => {
+      newsletterSubscriptionSendTask.execute();
     },
   },
 };
