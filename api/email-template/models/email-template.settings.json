@@ -11,10 +11,6 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "Name": {
-      "type": "string",
-      "required": true
-    },
     "Subject": {
       "type": "string"
     },
@@ -30,6 +26,10 @@
     },
     "Bcc": {
       "type": "string"
+    },
+    "Name": {
+      "type": "uid",
+      "required": true
     }
   }
 }

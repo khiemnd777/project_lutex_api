@@ -1,6 +1,6 @@
 "use strict";
 
-const { mergeObjects } = require("../../_stdio/shared/utils");
+const queuedEmailSendTask = require("../../_stdio/services/messages/queued-email-send-task");
 
 /**
  * Cron config that gives you an opportunity
@@ -12,9 +12,10 @@ const { mergeObjects } = require("../../_stdio/shared/utils");
  * See more details here: https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/configurations.html#cron-tasks
  */
 module.exports = {
-  "5 * * * * *": {
+  // Queued email send task
+  "0 1 * * * *": {
     task: () => {
-      strapi.log.debug("ok");
+      queuedEmailSendTask.execute(3);
     },
   },
 };

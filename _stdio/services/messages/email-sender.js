@@ -37,7 +37,7 @@ const createMailTransporter = (emailAccount) => {
   return transporter;
 };
 
-export class EmailSender {
+class EmailSender {
   constructor() {
 
   }
@@ -54,3 +54,5 @@ export class EmailSender {
     return null;
   }
 }
+
+module.exports = EmailSender;
