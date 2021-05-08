@@ -4,53 +4,56 @@ const tokenizer = require("./tokenizer");
 
 const extractTokens = (content) => {
   const regex = new RegExp(/%[@a-zA-Z\d:=\.]+%/g);
-  const list = regex.exec(content);
-  if (isArray(list)) {
-    const tokens = {};
-    list.forEach((token) => {
-      let predicatedToken = token.replace(/^%/g, "").replace(/%$/, "");
-      if (!tokens[predicatedToken]) {
-        const splittedToken = predicatedToken.split("::");
-        const tokenFunc = splittedToken[0];
-        const splittedTokenResult = {
-          tokenFunc: tokenFunc,
-          tokenParams: [],
-        };
-        // assign to tokens
-        tokens[predicatedToken] = splittedTokenResult;
-        // parameters
-        if (splittedToken.length > 1) {
-          for (let inx = 1; inx < splittedToken.length; inx++) {
-            const tokenParam = splittedToken[inx];
-            const splittedTokenParam = tokenParam.split("=");
-            splittedTokenResult.tokenParams.push({
-              name: splittedTokenParam[0],
-              value:
-                splittedTokenParam.length > 1
-                  ? splittedTokenParam[1]
-                  : undefined,
-            });
+  let list = [];
+  const tokens = {};
+  while ((list = regex.exec(content)) !== null) {
+    if (isArray(list)) {
+      list.forEach((token) => {
+        let predicatedToken = token.replace(/^%/g, "").replace(/%$/, "");
+        if (!tokens[predicatedToken]) {
+          const splittedToken = predicatedToken.split("::");
+          const tokenFunc = splittedToken[0];
+          const splittedTokenResult = {
+            tokenFunc: tokenFunc,
+            tokenParams: [],
+          };
+          // assign to tokens
+          tokens[predicatedToken] = splittedTokenResult;
+          // parameters
+          if (splittedToken.length > 1) {
+            for (let inx = 1; inx < splittedToken.length; inx++) {
+              const tokenParam = splittedToken[inx];
+              const splittedTokenParam = tokenParam.split("=");
+              splittedTokenResult.tokenParams.push({
+                name: splittedTokenParam[0],
+                value:
+                  splittedTokenParam.length > 1
+                    ? splittedTokenParam[1]
+                    : undefined,
+              });
+            }
           }
         }
-      }
-    });
-    return tokens;
+      });
+    }
   }
-  return null;
+  return tokens;
 };
 
 const prepareReplacedTokens = (content) => {
+  const result = [];
   const regex = new RegExp(/%[@a-zA-Z\d:=\.]+%/g);
-  const list = regex.exec(content);
-  if (isArray(list)) {
-    return list.map((token) => {
-      return {
-        token: token,
-        replacedToken: token.replace(/^%/g, "").replace(/%$/, ""),
-      };
-    });
+  while ((list = regex.exec(content)) !== null) {
+    if (isArray(list)) {
+      Array.prototype.push.apply(result, list.map((token) => {
+        return {
+          token: token,
+          replacedToken: token.replace(/^%/g, "").replace(/%$/, ""),
+        };
+      }));
+    }
   }
-  return [];
+  return result;
 };
 
 const buildTokens = async (content) => {
@@ -66,7 +69,7 @@ const buildTokens = async (content) => {
           const workspaceName = splittedTokenFunc[0];
           const workspace = tokenizer[workspaceName];
           if (workspace) {
-            builtToken[workspace] = {};
+            builtToken[workspaceName] = {};
             const workspaceFunc = workspace[splittedTokenFunc[1]];
             if ("function" === typeof workspaceFunc) {
               const tokenParams = token.tokenParams;
@@ -84,12 +87,12 @@ const buildTokens = async (content) => {
                 : workspaceFunc();
               if (execWorkspaceFunc instanceof Promise) {
                 const resultWorkspaceFunc = await execWorkspaceFunc;
-                builtToken[workspace][
-                  `${workspaceFunc}${tokenParamsStr}`
+                builtToken[workspaceName][
+                  `${splittedTokenFunc[1]}${tokenParamsStr}`
                 ] = resultWorkspaceFunc;
               } else {
                 builtToken[workspace][
-                  `${workspaceFunc}${tokenParamsStr}`
+                  `${splittedTokenFunc[1]}${tokenParamsStr}`
                 ] = execWorkspaceFunc;
               }
             }
@@ -109,7 +112,7 @@ const renderContent = async (content) => {
     const replacedTokens = prepareReplacedTokens(content);
     if (replacedTokens.length) {
       replacedTokens.forEach((replacedToken) => {
-        replacedContent = content.replace(
+        replacedContent = replacedContent.replace(
           replacedToken.token,
           replacedToken.replacedToken
         );

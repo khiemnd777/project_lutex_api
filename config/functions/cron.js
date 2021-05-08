@@ -19,6 +19,7 @@ module.exports = {
    */ 
   "0 1 * * * *": {
     task: () => {
+      strapi.log.debug("Queued email sending...");
       queuedEmailSendTask.execute();
     },
   },

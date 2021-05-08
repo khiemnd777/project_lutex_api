@@ -1,10 +1,7 @@
 "use strict";
 
-const Mustache = require("mustache");
 const { isArray, toSanitizedModel } = require("../../../_stdio/shared/utils");
 const {
-  prepareReplacedTokens,
-  buildTokens,
   renderContent,
 } = require("../../../_stdio/services/messages/token-builder");
 
@@ -34,10 +31,10 @@ module.exports = {
         sendImmediately: emailTemplate.SendImmediately,
       };
       // Body
-      const body = renderContent(emailTemplate.Body);
+      const body = await renderContent(emailTemplate.Body);
       modelForSending.body = body;
       // Subject
-      const subject = renderContent(emailTemplate.Subject);
+      const subject = await renderContent(emailTemplate.Subject);
       modelForSending.subject = subject;
       return modelForSending;
     }

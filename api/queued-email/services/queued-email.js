@@ -19,12 +19,16 @@ module.exports = {
     return entry;
   },
   async updateQueuedEmail(params, data) {
-    const validData = await strapi.entityValidator.validateEntityUpdate(
-      strapi.models[queuedEmail],
-      data
-    );
-    const entry = await strapi.query(queuedEmail).update(params, validData);
-    return entry;
+    try {
+      const validData = await strapi.entityValidator.validateEntityUpdate(
+        strapi.models[queuedEmail],
+        data
+      );
+      const entry = await strapi.query(queuedEmail).update(params, validData);
+      return entry;
+    } catch (ex) {
+      strapi.log.debug(ex);
+    }
   },
   async deleteQueuedEmail(params) {
     await strapi.query(queuedEmail).delete(params);
@@ -45,22 +49,24 @@ module.exports = {
     if (to) {
       params["To"] = to;
     }
-    if (maxSendTries) {
-      params["SendTries_lt"] = maxSendTries;
+    if ("undefined" !== typeof maxSendTries) {
+      params["_where"] = {
+        _or: [{ SendTries_null: true }, { SendTries_lt: maxSendTries }],
+      };
     }
     if (loadNewest) {
       params["_sort"] = "createdAt:desc";
     }
-    if (pageIndex) {
+    if ("undefined" !== typeof pageIndex) {
       params["_start"] = pageIndex;
     }
-    if (pageSize) {
+    if ("undefined" !== typeof pageSize) {
       params["_limit"] = pageSize;
     }
     if (loadNotSentItemsYetOnly) {
       params["SentOn_null"] = true;
     }
-    const entries = await strapi.query(queuedEmail).search(params);
+    const entries = await strapi.query(queuedEmail).find(params);
     return toSanitizedModels(entries, strapi.models[queuedEmail]);
   },
 };

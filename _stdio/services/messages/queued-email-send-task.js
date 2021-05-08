@@ -1,5 +1,6 @@
 const { isArray } = require("../../shared/utils");
 const EmailSender = require("../messages/email-sender");
+const marked = require("marked");
 
 module.exports = {
   async execute() {
@@ -18,10 +19,11 @@ module.exports = {
       const emailSender = new EmailSender()
       queuedEmails.forEach(async (email) => {
         try {
+          const htmlBody = marked(email.Body);
           await emailSender.sendEmail(
             !!email.EmailAccount ? email.EmailAccount.id : null,
             email.Subject,
-            email.Body,
+            htmlBody,
             email.From,
             email.FromName,
             email.To,
@@ -31,6 +33,9 @@ module.exports = {
           );
           email.SentOn = new Date();
         } catch {
+          if(!email.SendTries){
+            email.SendTries = 0;
+          }
           email.SendTries += 1;
         } finally {
           await queuedEmailService.updateQueuedEmail(

@@ -16,18 +16,20 @@ module.exports = {
     if (!subscribers.length) return;
     // Email template.
     subscribers.forEach(async (subscriber) => {
-      await queuedEmailService.insertQueuedEmail({
-        From: defaultEmailAccount.Email,
-        FromName: defaultEmailAccount.DisplayName,
-        To: subscriber.Email,
-        Bcc: modelForSending.bcc,
-        Subject: modelForSending.subject,
-        Body: modelForSending.body,
-        SendImmediately: modelForSending.sendImmediately,
-        EmailAccount: {
-          id: defaultEmailAccount.id,
-        },
-      });
+      try {
+        await queuedEmailService.insertQueuedEmail({
+          From: defaultEmailAccount.Email,
+          FromName: defaultEmailAccount.DisplayName,
+          To: subscriber.Email,
+          Bcc: modelForSending.bcc,
+          Subject: modelForSending.subject,
+          Body: modelForSending.body,
+          SendImmediately: modelForSending.sendImmediately,
+          EmailAccount: defaultEmailAccount.id,
+        });
+      } catch (ex) {
+        strapi.log.debug(ex);
+      }
     });
   },
 };

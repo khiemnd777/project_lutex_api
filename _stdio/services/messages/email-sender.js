@@ -44,7 +44,7 @@ class EmailSender {
   async sendEmail(emailAccountId, subject, body, from, fromName, to, toName, cc, bcc) {
     // get email account by id or default.
     const emailAccount = await strapi.services["email-account"].getEmailByIdOrDefault(emailAccountId);
-    if (sendMail) {
+    if (emailAccount) {
       let transporter = createMailTransporter(emailAccount);
       // send mail with defined transport object
       const sendMailParams = prepareSendMailParams(subject, body, from, fromName, to, toName, cc, bcc);

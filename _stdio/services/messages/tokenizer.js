@@ -3,7 +3,8 @@ const { isArray, toSanitizedModel, toSanitizedModels } = require("../../shared/u
 module.exports = {
   Website: {
     async Name() {
-      return await strapi.query("environment").find().Name;
+      const environment = await strapi.services.environment.find();
+      return environment.Name;
     },
   },
   Post: {

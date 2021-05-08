@@ -47,7 +47,7 @@
     },
     "SendTries": {
       "type": "integer",
-      "private": true
+      "private": false
     }
   }
 }
