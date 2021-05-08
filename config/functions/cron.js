@@ -1,5 +1,7 @@
 "use strict";
 
+const { mergeObjects } = require("../../_stdio/shared/utils");
+
 /**
  * Cron config that gives you an opportunity
  * to run scheduled jobs.
@@ -9,9 +11,10 @@
  *
  * See more details here: https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/configurations.html#cron-tasks
  */
-
 module.exports = {
-  "0 1 * * * *": () => {
-    strapi.log.debug("ok");
+  "5 * * * * *": {
+    task: () => {
+      strapi.log.debug("ok");
+    },
   },
 };

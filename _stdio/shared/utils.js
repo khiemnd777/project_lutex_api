@@ -34,12 +34,18 @@ const isArray = (arr) => {
 const mergeObjects = (target, source, base) => {
   const baseSource = base || source;
   for (const key in baseSource) {
-    if (source[key] instanceof Object) {
-      mergeObjects(target[key] || {}, source[key]);
-      continue;
-    }
-    if ("object" !== typeof source[key] && !!source[key]) {
+    if (
+      "object" !== typeof source[key] &&
+      "function" !== typeof source[key] &&
+      !!source[key]
+    ) {
       target[key] = source[key];
+    }
+    if ("function" === typeof source[key]) {
+      target[key] = source[key];
+    }
+    if (source[key] instanceof Object && "function" !== typeof source[key]) {
+      target[key] = mergeObjects({}, source[key]);
     }
   }
   return target;
@@ -166,7 +172,7 @@ const toTokenizedObject = (tokenizedData) => {
         }
         // the other ways.
       }
-    })
+    });
   }
   return null;
 };
@@ -187,5 +193,5 @@ module.exports = {
   seoCollection,
   seoSingle,
   find,
-  firstOrDefault
+  firstOrDefault,
 };
