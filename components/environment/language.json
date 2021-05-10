@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_environment_languages",
+  "info": {
+    "name": "Language",
+    "icon": "atlas"
+  },
+  "options": {},
+  "attributes": {
+    "Locale": {
+      "type": "string"
+    },
+    "DisplayName": {
+      "type": "string"
+    }
+  }
+}
