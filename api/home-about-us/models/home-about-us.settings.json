@@ -32,6 +32,9 @@
     },
     "LinkText": {
       "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
     }
   }
 }
