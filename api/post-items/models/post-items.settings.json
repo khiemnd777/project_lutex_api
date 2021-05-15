@@ -25,14 +25,6 @@
         }
       }
     },
-    "Short": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "Body": {
       "type": "richtext",
       "pluginOptions": {
@@ -100,6 +92,14 @@
     "Slug": {
       "type": "uid",
       "required": true
+    },
+    "Short": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext"
     }
   }
 }
