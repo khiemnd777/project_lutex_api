@@ -16,7 +16,12 @@
     "Icon": {
       "type": "enumeration",
       "enum": [
-        "icon_"
+        "icon_phone",
+        "icon_gmail",
+        "icon_skype_outline",
+        "icon_skype",
+        "icon_github_circled_alt2",
+        "icon_github_circled"
       ]
     },
     "Link": {
