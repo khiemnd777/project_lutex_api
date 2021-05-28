@@ -77,6 +77,15 @@
         }
       },
       "component": "environment.language"
+    },
+    "Private": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean",
+      "default": false
     }
   }
 }

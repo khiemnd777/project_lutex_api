@@ -13,4 +13,10 @@ module.exports = {
     const data = await strapi.services.environment.find(ctx.query);
     return data.Theme.Theme;
   },
+  async pairPrivateToken(ctx) {
+    strapi.log.debug(JSON.stringify(ctx.params));
+    const ptk = ctx.params.ptk;
+    const paired = await strapi.services.environment.pairPrivateToken(ptk);
+    return paired;
+  },
 };
