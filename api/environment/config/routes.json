@@ -25,6 +25,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/environment/pairptk/:ptk",
+      "handler": "environment.pairPrivateToken",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/environment",
       "handler": "environment.update",
