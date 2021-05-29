@@ -8,9 +8,12 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "develop:prod": "cross-env NODE_ENV=production yarn develop",
-    "build:prod": "cross-env NODE_ENV=production yarn build",
-    "start:prod": "cross-env NODE_ENV=production yarn start"
+    "develop:prod": "NODE_ENV=production yarn develop",
+    "build:prod": "NODE_ENV=production yarn build",
+    "start:prod": "NODE_ENV=production yarn start",
+    "develop:prod:win": "cross-env NODE_ENV=production yarn develop",
+    "build:prod:win": "cross-env NODE_ENV=production yarn build",
+    "start:prod:win": "cross-env NODE_ENV=production yarn start"
   },
   "devDependencies": {},
   "dependencies": {
