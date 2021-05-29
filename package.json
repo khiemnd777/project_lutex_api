@@ -13,7 +13,11 @@
     "start:prod": "NODE_ENV=production yarn start",
     "develop:prod:win": "cross-env NODE_ENV=production yarn develop",
     "build:prod:win": "cross-env NODE_ENV=production yarn build",
-    "start:prod:win": "cross-env NODE_ENV=production yarn start"
+    "start:prod:win": "cross-env NODE_ENV=production yarn start",
+    "start:pm2": "pm2 start pm2.config.js",
+    "start:pm2:prod": "pm2 start pm2.config.js --env=production",
+    "stop:pm2": "pm2 stop pm2.config.js",
+    "delete:pm2": "pm2 delete pm2.config.js"
   },
   "devDependencies": {},
   "dependencies": {
