@@ -121,3 +121,4 @@ yarn.lock
 _stdio/devops/cake/tools/Addins
 server.js
 pm2.config.js
+build.config.json
