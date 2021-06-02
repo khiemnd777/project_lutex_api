@@ -9,23 +9,24 @@ var target = Argument("target", "Default");
 
 var root = "./../../../";
 var rootBuild = "./../";
+var templatePath = "./templates/";
 // PM2 config
 var pm2Config = "pm2.config.js";
 var pm2ConfigPath = $"{root}{pm2Config}";
-var pm2ConfigTemplate = $"{pm2Config}.template";
+var pm2ConfigTemplate = $"{templatePath}{pm2Config}.template";
 var pm2ConfigTemplatePath = $"{rootBuild}{pm2ConfigTemplate}";
 // Server.js
 var serverRun = "server.js";
 var serverRunPath = $"{root}{serverRun}";
-var serverRunTemplate = $"{serverRun}.template";
+var serverRunTemplate = $"{templatePath}{serverRun}.template";
 var serverRunTemplatePath = $"{rootBuild}{serverRunTemplate}";
 // .env
 var env = ".env";
 var envPath = $"{root}{env}";
-var envTemplate = $"{env}.template";
+var envTemplate = $"{templatePath}{env}.template";
 var envTemplatePath = $"{rootBuild}{envTemplate}";
 // Configuration
-var config = ParseJsonFromFile("./build.config.json");
+var config = ParseJsonFromFile("./../build.config.json");
 var mode = config["CONFIGURATION"].ToString();
 // Bind token to text.
 private Cake.Common.Text.TextTransformation<Cake.Core.Text.TextTransformationTemplate> BindToken(string text, Newtonsoft.Json.Linq.JObject config) 
