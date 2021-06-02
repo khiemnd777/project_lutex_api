@@ -1,0 +1,1 @@
+Invoke-Command -FilePath .\_stdio\devops\cake\build.ps1

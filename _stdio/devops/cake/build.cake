@@ -26,7 +26,7 @@ var envPath = $"{root}{env}";
 var envTemplate = $"{templatePath}{env}.template";
 var envTemplatePath = $"{rootBuild}{envTemplate}";
 // Configuration
-var config = ParseJsonFromFile("./../build.config.json");
+var config = ParseJsonFromFile($"{root}build.config.json");
 var mode = config["CONFIGURATION"].ToString();
 // Bind token to text.
 private Cake.Common.Text.TextTransformation<Cake.Core.Text.TextTransformationTemplate> BindToken(string text, Newtonsoft.Json.Linq.JObject config) 
