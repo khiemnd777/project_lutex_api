@@ -16,5 +16,11 @@
   "DATABASE_USERNAME": null,
   "DATABASE_PASSWORD": null,
   "AUTHENTICATION_DATABASE": null,
-  "DATABASE_SSL": true
+  "DATABASE_SSL": true,
+  "GIT_BRANCH": null,
+  "GIT_MERGER_NAME": null,
+  "GIT_MERGER_EMAIL": null,
+  "GIT_USERNAME": null,
+  "GIT_PASSWORD": null,
+  "GIT_REMOTE": null
 }
