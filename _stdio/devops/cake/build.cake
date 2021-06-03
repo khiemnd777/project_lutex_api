@@ -107,18 +107,22 @@ Task ("Copy-FS")
 var gitBranch = config["GIT_BRANCH"]?.ToString();
 var gitMergerName = config["GIT_MERGER_NAME"]?.ToString();
 var gitMergerEmail = config["GIT_MERGER_EMAIL"]?.ToString();
-var gitUserName = config["GIT_USERNAME"]?.ToString();
 var gitPassword = config["GIT_PASSWORD"]?.ToString();
 var gitRemote = config["GIT_REMOTE"]?.ToString();
 
 Task ("Git-Checkout")
   .Does(() => {
-    GitCheckout(root, gitBranch, new FilePath[0]);
+    GitCheckout(root, $"{gitRemote}{gitBranch}", new FilePath[0]);
+  });
+
+Task ("Git-Branch")
+  .Does(() => {
+    GitCreateBranch(root, gitBranch, true);
   });
 
 Task ("Git-Pull")
   .Does(() => {
-    var result = GitPull(root, gitMergerName, gitMergerEmail, gitUserName, gitPassword, gitRemote);
+    var result = GitPull(root, gitMergerName, gitMergerEmail, gitMergerEmail, gitPassword, gitRemote);
   });
 
 Task ("Build")
@@ -163,6 +167,7 @@ Task ("Default")
   .IsDependentOn ("PM2-Init")
   .IsDependentOn ("PM2-Stop")
   .IsDependentOn ("Git-Checkout")
+  .IsDependentOn ("Git-Branch")
   .IsDependentOn ("Git-Pull")
   .IsDependentOn ("Build")
   .IsDependentOn ("PM2-Start")
