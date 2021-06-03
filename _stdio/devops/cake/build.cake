@@ -112,7 +112,7 @@ var gitRemote = config["GIT_REMOTE"]?.ToString();
 
 Task ("Git-Checkout")
   .Does(() => {
-    GitCheckout(root, $"{gitRemote}{gitBranch}", new FilePath[0]);
+    GitCheckout(root, $"{gitRemote}/{gitBranch}", new FilePath[0]);
   });
 
 Task ("Git-Branch")
@@ -132,9 +132,14 @@ Task ("Build")
     Yarn.RunScript (mode == "debug" ? "build" : IsRunningOnWindows() ? "build:prod:win" : "build:prod");
   });
 
+Task("Yarn-Install")
+  .Does(() => {
+    Yarn.Install();
+  });
+
 Task("PM2-Init")
   .Does(() => {
-    Yarn.Add(settings => settings.Package("pm2").Globally()).Install();
+    Yarn.Add(settings => settings.Package("pm2").Globally());
   });
 
 Task ("PM2-Delete")
@@ -164,6 +169,7 @@ Task("Rollback")
 Task ("Default")
   .IsDependentOn ("Clean")
   .IsDependentOn ("Copy-FS")
+  .IsDependentOn ("Yarn-Install")
   .IsDependentOn ("PM2-Init")
   .IsDependentOn ("PM2-Stop")
   .IsDependentOn ("Git-Checkout")
