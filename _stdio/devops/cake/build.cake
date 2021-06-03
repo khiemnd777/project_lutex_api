@@ -112,12 +112,7 @@ var gitRemote = config["GIT_REMOTE"]?.ToString();
 
 Task ("Git-Checkout")
   .Does(() => {
-    GitCheckout(root, $"{gitRemote}/{gitBranch}", new FilePath[0]);
-  });
-
-Task ("Git-Branch")
-  .Does(() => {
-    GitCreateBranch(root, gitBranch, true);
+    StartProcess("git", new ProcessSettings{ Arguments = $"checkout -b {gitBranch} {gitRemote}/{gitBranch}" });
   });
 
 Task ("Git-Pull")
@@ -173,7 +168,6 @@ Task ("Default")
   .IsDependentOn ("PM2-Init")
   .IsDependentOn ("PM2-Stop")
   .IsDependentOn ("Git-Checkout")
-  .IsDependentOn ("Git-Branch")
   .IsDependentOn ("Git-Pull")
   .IsDependentOn ("Build")
   .IsDependentOn ("PM2-Start")
