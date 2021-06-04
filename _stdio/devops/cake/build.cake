@@ -195,7 +195,6 @@ if (envMode == "development") {
     .IsDependentOn ("Git-Checkout")
     .IsDependentOn ("Git-Pull")
     .IsDependentOn ("Build")
-    .IsDependentOn ("Run")
     .Does (() =>
     {
       Information("Built with {0} environment.", envMode);
