@@ -28,6 +28,7 @@ var envTemplatePath = $"{rootBuild}{envTemplate}";
 // Configuration
 var config = ParseJsonFromFile($"{root}build.config.json");
 var mode = config["CONFIGURATION"].ToString();
+var envMode = config["ENVIRONMENT"].ToString();
 // Bind token to text.
 private Cake.Common.Text.TextTransformation<Cake.Core.Text.TextTransformationTemplate> BindToken(string text, Newtonsoft.Json.Linq.JObject config) 
 {
@@ -120,11 +121,24 @@ Task ("Git-Pull")
     var result = GitPull(root, gitMergerName, gitMergerEmail, gitMergerEmail, gitPassword, gitRemote);
   });
 
+// Build
 Task ("Build")
   .Does (() =>
   {
     // Yarn install & build
     Yarn.RunScript (mode == "debug" ? "build" : IsRunningOnWindows() ? "build:prod:win" : "build:prod");
+  });
+
+// Run
+Task ("Run")
+  .Does (() =>
+  {
+    // Yarn install & build
+    if(envMode == "development"){
+      Yarn.RunScript (mode == "debug" ? "develop" : IsRunningOnWindows() ? "develop:prod:win" : "develop:prod");
+    } else {
+      Yarn.RunScript (mode == "debug" ? "start" : IsRunningOnWindows() ? "start:prod:win" : "start:prod");
+    }
   });
 
 Task("Yarn-Install")
@@ -152,7 +166,16 @@ Task ("PM2-Start")
     Yarn.RunScript (mode == "debug" ? "start:pm2" : "start:pm2:prod");
   });
 
-Task("Rollback")
+// Rollback
+var rollbackTask = Task("Rollback");
+if(envMode == "development") {
+  rollbackTask
+    .IsDependentOn("Clean")
+    .Does(() => {
+
+    });
+} else {
+  Task("Rollback")
   .IsDependentOn("PM2-Init")
   .IsDependentOn("PM2-Stop")
   .IsDependentOn("PM2-Delete")
@@ -160,21 +183,40 @@ Task("Rollback")
   .Does(() => {
 
   });
+}
 
-Task ("Default")
-  .IsDependentOn ("Clean")
-  .IsDependentOn ("Copy-FS")
-  .IsDependentOn ("Yarn-Install")
-  .IsDependentOn ("PM2-Init")
-  .IsDependentOn ("PM2-Stop")
-  .IsDependentOn ("Git-Checkout")
-  .IsDependentOn ("Git-Pull")
-  .IsDependentOn ("Build")
-  .IsDependentOn ("PM2-Start")
-  .Does (() =>
-  {
-
-  })
+// Default task
+var defaultTask = Task ("Default");
+if (envMode == "development") {
+  defaultTask
+    .IsDependentOn ("Clean")
+    .IsDependentOn ("Copy-FS")
+    .IsDependentOn ("Yarn-Install")
+    .IsDependentOn ("Git-Checkout")
+    .IsDependentOn ("Git-Pull")
+    .IsDependentOn ("Build")
+    .IsDependentOn ("Run")
+    .Does (() =>
+    {
+      Information("Built with {0} environment.", envMode);
+    });
+} else {
+  defaultTask
+    .IsDependentOn ("Clean")
+    .IsDependentOn ("Copy-FS")
+    .IsDependentOn ("Yarn-Install")
+    .IsDependentOn ("PM2-Init")
+    .IsDependentOn ("PM2-Stop")
+    .IsDependentOn ("Git-Checkout")
+    .IsDependentOn ("Git-Pull")
+    .IsDependentOn ("Build")
+    .IsDependentOn ("PM2-Start")
+    .Does (() =>
+    {
+      Information("Built with {0} environment.", envMode);
+    });
+}
+defaultTask
   .OnError(exception =>
   {
     RunTarget("Rollback");
