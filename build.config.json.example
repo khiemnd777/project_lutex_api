@@ -1,5 +1,6 @@
 {
   "CONFIGURATION": "debug|release",
+  "ENVIRONMENT": "development|production",
   "PM2_NAME": null,
   "PM2_SCRIPT": "./server.js",
   "HOST": "0.0.0.0",
