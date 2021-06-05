@@ -1,5 +1,5 @@
 # A Hybrid CMS based on [Strapi](https://strapi.io/)
-
+## Description
 - Building up the core functions and utilities of backend using JavaScript language and NodeJS based on Strapi - A headless CMS.
 MongoDB database.
 - Support access APIs through GraphQL or RestAPI.
@@ -19,8 +19,26 @@ Upcoming features:
 - The Package Management (that included inside the core) will help to download and distribute the shared components to the consumers (web developers or web designers).
 - The Market where the contributors will share or sell their components.
 
+## Install
 
 Install via [Lutex api's installer](https://github.com/khiemnd777/project_lutex_api_install), recommend to fork then clone above project and run the **init.ps1** in Powershell bash.
 ```powershell
 .\init.ps1
 ```
+## Build for development
+Recommend to use in [Yarn](https://yarnpkg.com/)
+- Run with env:development
+```
+yarn build
+```
+```
+yarn develop
+```
+- Run with env:production
+```
+yarn build:prod
+```
+```
+yarn develop:prod
+```
+Read more detail in **package.json** file.
