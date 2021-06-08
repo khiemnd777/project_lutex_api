@@ -40,6 +40,8 @@ public class TaskConfigurationModel
   public string DatabaseUserName { get; set; }
   [JsonProperty("DATABASE_PASSWORD")]
   public string DatabasePassword { get; set; }
+  [JsonProperty("DATABASE_SSL")]
+  public string DatabaseSsl { get; set; }
   [JsonProperty("AUTHENTICATION_DATABASE")]
   public string AuthenticationDatabase { get; set; }
   [JsonProperty("GIT_PROVIDER")]
