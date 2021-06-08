@@ -175,14 +175,14 @@ if(envMode == "development") {
 
     });
 } else {
-  Task("Rollback")
-  .IsDependentOn("PM2-Init")
-  .IsDependentOn("PM2-Stop")
-  .IsDependentOn("PM2-Delete")
-  .IsDependentOn("Clean")
-  .Does(() => {
+  rollbackTask
+    .IsDependentOn("PM2-Init")
+    .IsDependentOn("PM2-Stop")
+    .IsDependentOn("PM2-Delete")
+    .IsDependentOn("Clean")
+    .Does(() => {
 
-  });
+    });
 }
 
 // Default task
