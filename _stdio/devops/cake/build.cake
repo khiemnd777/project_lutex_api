@@ -67,9 +67,10 @@ if (envMode == "development") {
   defaultTask
     .IsDependentOn ("Clean")
     .IsDependentOn ("Copy-FS")
-    .IsDependentOn ("Yarn-Install")
     .IsDependentOn ("Git-Checkout")
     .IsDependentOn ("Git-Pull")
+    .IsDependentOn ("Yarn-Init")
+    .IsDependentOn ("Yarn-Install")
     .IsDependentOn ("Build")
     .Does (() =>
     {
@@ -79,11 +80,12 @@ if (envMode == "development") {
   defaultTask
     .IsDependentOn ("Clean")
     .IsDependentOn ("Copy-FS")
-    .IsDependentOn ("Yarn-Install")
+    .IsDependentOn ("Yarn-Init")
     .IsDependentOn ("PM2-Init")
     .IsDependentOn ("PM2-Stop")
     .IsDependentOn ("Git-Checkout")
     .IsDependentOn ("Git-Pull")
+    .IsDependentOn ("Yarn-Install")
     .IsDependentOn ("Build")
     .IsDependentOn ("PM2-Start")
     .Does (() =>
