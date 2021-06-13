@@ -19,4 +19,16 @@ module.exports = {
     const installer = new WidgetInstaller();
     installer.Uninstall(body);
   },
+  async exists(ctx) {
+    const query = ctx.query;
+    if ('undefined' === typeof query.name) {
+      throw new Error(`The query name must be defined`);
+    }
+    const service = strapi.services["widget"];
+    let showHidden = false;
+    if (ctx.state.user && ctx.state.user.role.Name === "Administrator") {
+      showHidden = true;
+    }
+    return service.existsWidget(query.name, showHidden);
+  },
 };

@@ -18,6 +18,14 @@
     },
     {
       "method": "GET",
+      "path": "/widget/exists",
+      "handler": "widget.exists",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/widgets",
       "handler": "widget.find",
       "config": {
