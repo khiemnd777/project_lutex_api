@@ -1,6 +1,22 @@
 {
   "routes": [
     {
+      "method": "POST",
+      "path": "/widget/setup",
+      "handler": "widget.setup",
+      "config": {
+        "policies": ["isAdmin"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/widget/uninstall",
+      "handler": "widget.uninstall",
+      "config": {
+        "policies": ["isAdmin"]
+      }
+    },
+    {
       "method": "GET",
       "path": "/widgets",
       "handler": "widget.find",

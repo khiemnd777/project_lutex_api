@@ -33,7 +33,7 @@ const isArray = (arr) => {
 
 const arraySize = (arr) => {
   return isArray(arr) ? arr.length : 0;
-}
+};
 
 const mergeObjects = (target, source, base) => {
   const baseSource = base || source;
@@ -181,6 +181,11 @@ const toTokenizedObject = (tokenizedData) => {
   return null;
 };
 
+const parseBody = (body) => {
+  if (!body) return null;
+  return JSON.parse(body);
+};
+
 module.exports = {
   random,
   toSanitizedModel,
@@ -199,4 +204,5 @@ module.exports = {
   seoSingle,
   find,
   firstOrDefault,
+  parseBody,
 };
