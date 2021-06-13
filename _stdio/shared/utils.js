@@ -181,6 +181,10 @@ const toTokenizedObject = (tokenizedData) => {
   return null;
 };
 
+const cloneObject = (obj) => {
+  return JSON.parse(JSON.stringify(obj));
+};
+
 const parseBody = (body) => {
   if (!body) return null;
   return JSON.parse(body);
@@ -205,4 +209,5 @@ module.exports = {
   find,
   firstOrDefault,
   parseBody,
+  cloneObject,
 };

@@ -5,7 +5,15 @@
       "path": "/widget/setup",
       "handler": "widget.setup",
       "config": {
-        "policies": ["isAdmin"]
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/widget/upgrade",
+      "handler": "widget.upgrade",
+      "config": {
+        "policies": []
       }
     },
     {
@@ -13,7 +21,7 @@
       "path": "/widget/uninstall",
       "handler": "widget.uninstall",
       "config": {
-        "policies": ["isAdmin"]
+        "policies": []
       }
     },
     {

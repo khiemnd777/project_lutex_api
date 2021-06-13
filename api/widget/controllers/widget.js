@@ -14,6 +14,11 @@ module.exports = {
     const installer = new WidgetInstaller();
     installer.Setup(body);
   },
+  async upgrade(ctx){
+    const body = parseBody(ctx.request.body);
+    const installer = new WidgetInstaller();
+    installer.Upgrade(body);
+  },
   async uninstall(ctx) {
     const body = parseBody(ctx.request.body);
     const installer = new WidgetInstaller();

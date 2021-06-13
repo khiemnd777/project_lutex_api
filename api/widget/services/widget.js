@@ -1,6 +1,6 @@
 "use strict";
 
-const { mergeObjects } = require("../../../_stdio/shared/utils");
+const { cloneObject } = require("../../../_stdio/shared/utils");
 
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-services)
@@ -9,17 +9,18 @@ const { mergeObjects } = require("../../../_stdio/shared/utils");
 
 const widget = "widget";
 
+// {
+//   Name: "",
+//   FriendlyName: "",
+//   ConfigurationName: "",
+//   Parameters: [{
+//    Name: "",
+//    Value: "",
+//  }],
+// };
+
 module.exports = {
   async insertWidget(model) {
-    // {
-    //   Name: "",
-    //   FriendlyName: "",
-    //   ConfigurationName: "",
-    //   Parameters: [{
-    //    Name: "",
-    //    Value: "",
-    //  }],
-    // };
     try {
       const validModel = await strapi.entityValidator.validateEntityCreation(
         strapi.models[widget],
@@ -39,7 +40,6 @@ module.exports = {
         strapi.models[widget],
         model
       );
-      strapi.log.debug(JSON.stringify(validModel));
       const entry = await strapi.query(widget).update({ id: id }, validModel);
       return entry;
     } catch (ex) {
@@ -53,7 +53,6 @@ module.exports = {
         strapi.models[widget],
         model
       );
-      strapi.log.debug(JSON.stringify(validModel));
       const entry = await strapi
         .query(widget)
         .update({ Name: name }, validModel);
@@ -63,14 +62,45 @@ module.exports = {
       throw ex;
     }
   },
+  async updateWidgetParameters(name, params) {
+    const foundWidget = await strapi.query(widget).findOne({ Name: name });
+    if (foundWidget) {
+      try {
+        const widgetParameters = foundWidget.Parameters;
+        const resultParams = widgetParameters.map((x) => {
+          return {
+            Name: x.Name,
+            Value: x.Value,
+          };
+        });
+        params.forEach((param) => {
+          if (
+            resultParams.every(
+              (widgetParam) => widgetParam.Name !== param.Name
+            )
+          ) {
+            resultParams.push(cloneObject(param));
+          }
+        });
+        return await this.updateWidgetByName(name, {
+          Parameters: resultParams,
+        });
+      } catch (ex) {
+        throw ex;
+      }
+    }
+    return null;
+  },
   async publishWidget(name, published) {
     await strapi
       .query(widget)
       .update({ Name: name }, { published_at: published ? new Date() : null });
   },
   async existsWidget(name, showHidden) {
-    showHidden = 'undefined' === typeof showHidden ? false : showHidden;
-    const foundWidgets = await strapi.query(widget).find({ Name: name, published_at_null: showHidden });
+    showHidden = "undefined" === typeof showHidden ? false : showHidden;
+    const foundWidgets = await strapi
+      .query(widget)
+      .find({ Name: name, published_at_null: showHidden });
     return Array.isArray(foundWidgets) && foundWidgets.length > 0;
   },
   async deleteWidgetByName(name) {
