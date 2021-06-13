@@ -75,9 +75,7 @@ module.exports = {
         });
         params.forEach((param) => {
           if (
-            resultParams.every(
-              (widgetParam) => widgetParam.Name !== param.Name
-            )
+            resultParams.every((widgetParam) => widgetParam.Name !== param.Name)
           ) {
             resultParams.push(cloneObject(param));
           }
@@ -96,11 +94,8 @@ module.exports = {
       .query(widget)
       .update({ Name: name }, { published_at: published ? new Date() : null });
   },
-  async existsWidget(name, showHidden) {
-    showHidden = "undefined" === typeof showHidden ? false : showHidden;
-    const foundWidgets = await strapi
-      .query(widget)
-      .find({ Name: name, published_at_null: showHidden });
+  async existsWidget(name) {
+    const foundWidgets = await strapi.query(widget).find({ Name: name });
     return Array.isArray(foundWidgets) && foundWidgets.length > 0;
   },
   async deleteWidgetByName(name) {
