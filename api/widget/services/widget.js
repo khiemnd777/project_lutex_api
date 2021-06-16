@@ -73,7 +73,7 @@ module.exports = {
             Value: x.Value,
           };
         });
-        params.forEach((param) => {
+        params && params.forEach((param) => {
           if (
             resultParams.every((widgetParam) => widgetParam.Name !== param.Name)
           ) {
@@ -94,8 +94,10 @@ module.exports = {
       .query(widget)
       .update({ Name: name }, { published_at: published ? new Date() : null });
   },
-  async existsWidget(name) {
-    const foundWidgets = await strapi.query(widget).find({ Name: name });
+  async existsWidget(name, showHidden) {
+    const foundWidgets = await strapi
+      .query(widget)
+      .find({ Name: name, published_at_null: !!showHidden });
     return Array.isArray(foundWidgets) && foundWidgets.length > 0;
   },
   async deleteWidgetByName(name) {

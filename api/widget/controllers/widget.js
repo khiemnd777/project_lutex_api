@@ -10,26 +10,26 @@ const WidgetInstaller = require("../../../_stdio/services/widget/widget-installe
 
 module.exports = {
   async setup(ctx) {
-    const body = parseBody(ctx.request.body);
+    const body = 'string' === typeof ctx.request.body ? parseBody(ctx.request.body) : ctx.request.body;
     const installer = new WidgetInstaller();
-    installer.Setup(body);
+    return await installer.Setup(body);
   },
-  async upgrade(ctx){
-    const body = parseBody(ctx.request.body);
+  async upgrade(ctx) {
+    const body = 'string' === typeof ctx.request.body ? parseBody(ctx.request.body) : ctx.request.body;
     const installer = new WidgetInstaller();
-    installer.Upgrade(body);
+    return await installer.Upgrade(body);
   },
   async uninstall(ctx) {
-    const body = parseBody(ctx.request.body);
+    const body = 'string' === typeof ctx.request.body ? parseBody(ctx.request.body) : ctx.request.body;
     const installer = new WidgetInstaller();
-    installer.Uninstall(body);
+    return await installer.Uninstall(body);
   },
   async exists(ctx) {
     const params = ctx.params;
-    if ('undefined' === typeof params.name) {
+    if ("undefined" === typeof params.name) {
       throw new Error(`The query name must be defined`);
     }
     const service = strapi.services["widget"];
-    return service.existsWidget(params.name);
+    return await service.existsWidget(params.name);
   },
 };
