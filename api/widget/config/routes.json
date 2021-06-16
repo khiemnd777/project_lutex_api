@@ -1,6 +1,38 @@
 {
   "routes": [
     {
+      "method": "POST",
+      "path": "/widget/setup",
+      "handler": "widget.setup",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/widget/upgrade",
+      "handler": "widget.upgrade",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/widget/uninstall",
+      "handler": "widget.uninstall",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/widget/exists/:name",
+      "handler": "widget.exists",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "GET",
       "path": "/widgets",
       "handler": "widget.find",
