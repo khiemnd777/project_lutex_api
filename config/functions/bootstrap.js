@@ -1,4 +1,7 @@
-'use strict';
+"use strict";
+
+require("../../_stdio/services/bootstrap/bootstrapper-config");
+const BootstrapFactory = require("../../_stdio/services/bootstrap/bootstrap-factory");
 
 /**
  * An asynchronous bootstrap function that runs before
@@ -10,4 +13,6 @@
  * See more details here: https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/configurations.html#bootstrap
  */
 
-module.exports = () => {};
+module.exports = async () => {
+  await BootstrapFactory.Run();
+};
