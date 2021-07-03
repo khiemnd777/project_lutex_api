@@ -21,6 +21,9 @@
     },
     "Link": {
       "type": "string"
+    },
+    "Label": {
+      "type": "string"
     }
   }
 }
