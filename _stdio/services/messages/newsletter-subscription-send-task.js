@@ -15,7 +15,7 @@ module.exports = {
     const subscribers = await subscribersService.find();
     if (!subscribers.length) return;
     // Email template.
-    subscribers.forEach(async (subscriber) => {
+    await Promise.all(subscribers.map(async (subscriber) => {
       try {
         await queuedEmailService.insertQueuedEmail({
           From: defaultEmailAccount.Email,
@@ -30,6 +30,6 @@ module.exports = {
       } catch (ex) {
         strapi.log.debug(ex);
       }
-    });
+    }));
   },
 };
