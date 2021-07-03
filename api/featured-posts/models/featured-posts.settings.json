@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "featured_posts",
+  "info": {
+    "name": "Featured Posts"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "FeaturedPosts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "post.feature-post"
+    }
+  }
+}
