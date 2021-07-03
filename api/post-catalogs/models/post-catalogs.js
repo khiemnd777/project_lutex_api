@@ -1,6 +1,7 @@
 'use strict';
 
 const { syncFeaturedCatalogWithEmptyFields } = require('../../../_stdio/shared/components/post/feature-catalog/utils');
+const { syncFeaturedPostWithEmptyFields } = require('../../../_stdio/shared/components/post/feature-post/utils');
 const { slugifyUtils, displayNameUtils } = require("../../../_stdio/shared/utils");
 
 /**
@@ -15,11 +16,13 @@ module.exports = {
       displayNameUtils(data, 'Name');
       slugifyUtils(data, 'DisplayName');
       await syncFeaturedCatalogWithEmptyFields(data.FeatureCatalogs);
+      await syncFeaturedPostWithEmptyFields(data.FeaturePosts);
     },
     async beforeUpdate(params, data) {
       displayNameUtils(data, 'Name');
       slugifyUtils(data, 'DisplayName');
       await syncFeaturedCatalogWithEmptyFields(data.FeatureCatalogs);
+      await syncFeaturedPostWithEmptyFields(data.FeaturePosts);
     },
   },
 };
