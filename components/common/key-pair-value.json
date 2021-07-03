@@ -16,7 +16,11 @@
     "Icon": {
       "type": "enumeration",
       "enum": [
-        "icon_"
+        "icon_mail",
+        "icon_mail_alt",
+        "icon_phone",
+        "icon_search",
+        "icon_facebook_squared"
       ]
     },
     "Link": {
