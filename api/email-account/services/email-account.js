@@ -15,13 +15,14 @@ module.exports = {
       .query(emailAccount)
       .find({ IsDefault: !toBeDefault });
     const emailIds = emailsAsDefault.map((x) => x.id);
-    emailIds &&
-      Array.isArray(emailIds) &&
-      emailIds.forEach(async (emailId) => {
+    if(emailIds && Array.isArray(emailIds)){
+      await Promise.all(emailIds.map(async (emailId) => {
         await strapi
           .query(emailAccount)
           .update({ id: emailId }, { IsDefault: toBeDefault });
-      });
+      }));
+    }
+      
     return emailIds;
   },
   async getEmailAsDefault() {
