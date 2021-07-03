@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "featured_catalogs",
+  "info": {
+    "name": "Featured Catalogs"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": false
+    },
+    "FeaturedCatalogs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "post.feature-catalog"
+    }
+  }
+}
