@@ -5,4 +5,11 @@
  * to customize this controller
  */
 
-module.exports = {};
+module.exports = {
+  async findByKey (ctx){
+    const { params } = ctx;
+    const service = strapi.services["contact-information"];
+    const foundEntity = await service.getContactInformationByKey(params.key);
+    return foundEntity;
+  }
+};
