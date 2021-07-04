@@ -2,6 +2,14 @@
   "routes": [
     {
       "method": "GET",
+      "path": "/contact-information/:key",
+      "handler": "contact-information.findByKey",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/contact-information",
       "handler": "contact-information.find",
       "config": {
