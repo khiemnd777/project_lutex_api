@@ -27,6 +27,9 @@
       "type": "component",
       "repeatable": true,
       "component": "plugins.widget"
+    },
+    "StyleName": {
+      "type": "string"
     }
   }
 }
