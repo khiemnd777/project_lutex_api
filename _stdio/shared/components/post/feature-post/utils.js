@@ -16,7 +16,6 @@ const syncFeaturedPostWithEmptyFields = async (featuredPosts) => {
                 }
               }
               if (!fp.Router) {
-                console.log(postItem);
                 if (postItem.Router) {
                   fp.Router = postItem.Router.id;
                 }
