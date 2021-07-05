@@ -26,7 +26,6 @@ module.exports = {
         strapi.models[widget],
         model
       );
-      strapi.log.debug(JSON.stringify(validModel));
       const entry = await strapi.query(widget).create(validModel);
       return entry;
     } catch (ex) {
@@ -73,13 +72,16 @@ module.exports = {
             Value: x.Value,
           };
         });
-        params && params.forEach((param) => {
-          if (
-            resultParams.every((widgetParam) => widgetParam.Name !== param.Name)
-          ) {
-            resultParams.push(cloneObject(param));
-          }
-        });
+        params &&
+          params.forEach((param) => {
+            if (
+              resultParams.every(
+                (widgetParam) => widgetParam.Name !== param.Name
+              )
+            ) {
+              resultParams.push(cloneObject(param));
+            }
+          });
         return await this.updateWidgetByName(name, {
           Parameters: resultParams,
         });
@@ -95,9 +97,11 @@ module.exports = {
       .update({ Name: name }, { published_at: published ? new Date() : null });
   },
   async existsWidget(name, showHidden) {
-    const foundWidgets = await strapi
-      .query(widget)
-      .find({ Name: name, published_at_null: !!showHidden });
+    const args = { Name: name };
+    if ('undefined' === typeof showHidden || !showHidden) {
+      args["published_at_null"] = false;
+    }
+    const foundWidgets = await strapi.query(widget).find(args);
     return Array.isArray(foundWidgets) && foundWidgets.length > 0;
   },
   async deleteWidgetByName(name) {
