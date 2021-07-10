@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "picture_fields",
+  "info": {
+    "name": "Picture Fields",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Picture": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.slider"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Url": {
+      "type": "string"
+    }
+  }
+}
