@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/picture-fields",
+      "handler": "picture-fields.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/picture-fields/count",
+      "handler": "picture-fields.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/picture-fields/:id",
+      "handler": "picture-fields.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/picture-fields",
+      "handler": "picture-fields.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/picture-fields/:id",
+      "handler": "picture-fields.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/picture-fields/:id",
+      "handler": "picture-fields.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
