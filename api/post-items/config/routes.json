@@ -2,6 +2,14 @@
   "routes": [
     {
       "method": "GET",
+      "path": "/post-items/search",
+      "handler": "post-items.search",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/seo/post/:slug",
       "handler": "post-items.seo",
       "config": {
