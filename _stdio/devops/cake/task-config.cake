@@ -24,8 +24,12 @@ public class TaskConfigurationModel
   public string CloudinaryKey { get; set; }
   [JsonProperty("CLOUDINARY_SECRET")]
   public string CloudinarySecret { get; set; }
+  [JsonProperty("CACHE_ENABLED")]
+  public string CacheEnabled { get; set; }
   [JsonProperty("REDIS_URL")]
   public string RedisUrl { get; set; }
+  [JsonProperty("REDIS_MAX_AGE")]
+  public string RedisMaxAge { get; set; }
   [JsonProperty("CRON_ENABLED")]
   public bool? CronEnabled { get; set; }
   [JsonProperty("DATABASE_HOST")]

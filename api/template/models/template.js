@@ -27,6 +27,7 @@ module.exports = {
         data.FriendlyName = data.Name;
       }
       await syncWidgetWithEmptyFields(data.Widgets);
+      await strapi.middleware.cache.bust({ model: "template", id: data.id });
     },
   },
 };
