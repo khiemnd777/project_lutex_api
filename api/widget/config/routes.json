@@ -1,6 +1,30 @@
 {
   "routes": [
     {
+      "method": "GET",
+      "path": "/router/:routerId/widgets",
+      "handler": "widget.findWidgetsByRouter",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/template/:templateId/widgets",
+      "handler": "widget.findWidgetsByTemplate",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/widget/find/:id",
+      "handler": "widget.findById",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/widget/setup",
       "handler": "widget.setup",

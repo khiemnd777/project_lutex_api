@@ -1,6 +1,6 @@
 "use strict";
 
-const { cloneObject } = require("../../../_stdio/shared/utils");
+const { cloneObject, arraySize } = require("../../../_stdio/shared/utils");
 
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-services)
@@ -98,7 +98,7 @@ module.exports = {
   },
   async existsWidget(name, showHidden) {
     const args = { Name: name };
-    if ('undefined' === typeof showHidden || !showHidden) {
+    if ("undefined" === typeof showHidden || !showHidden) {
       args["published_at_null"] = false;
     }
     const foundWidgets = await strapi.query(widget).find(args);
@@ -110,4 +110,41 @@ module.exports = {
   async deleteWidgetById(id) {
     await strapi.query(widget).delete({ id: id });
   },
+  async findWidgetsByRouter(routerId) {
+    const entity = await strapi
+      .query("router")
+      .model.findById(routerId)
+      .select("Widgets");
+    if (!entity) return [];
+    if (!arraySize(entity.Widgets)) return [];
+    const models = prepareWidgetModels(entity?.Widgets);;
+    return models;
+  },
+  async findWidgetsByTemplate(templateId) {
+    const entity = await strapi
+      .query("template")
+      .model.findById(templateId)
+      .select("Widgets");
+    if (!entity) return [];
+    if (!arraySize(entity.Widgets)) return [];
+    const models = prepareWidgetModels(entity?.Widgets);
+    return models;
+  },
 };
+
+const prepareWidgetModels = (entities) => {
+  const models = entities?.map((item) => {
+    const ref = item.ref.toObject();
+    return {
+      Enabled: ref.Enabled,
+      Name: ref.Name,
+      WidgetName: ref.widget?.Name,
+      Placeholder: ref.Placeholder,
+      ConfigurationName: ref.ConfigurationName || ref.widget?.ConfigurationName,
+      Parameters: ref.Parameters,
+      BackgroundImage: ref.BackgroundImage,
+    };
+  });
+  return models;
+}
+
