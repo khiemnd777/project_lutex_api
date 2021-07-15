@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/router/:routerId/widgets",
+      "path": "/routers/:routerId/widgets",
       "handler": "widget.findWidgetsByRouter",
       "config": {
         "policies": []
@@ -10,7 +10,7 @@
     },
     {
       "method": "GET",
-      "path": "/template/:templateId/widgets",
+      "path": "/templates/:templateId/widgets",
       "handler": "widget.findWidgetsByTemplate",
       "config": {
         "policies": []

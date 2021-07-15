@@ -5,7 +5,8 @@ module.exports = ({ env }) => {
   return {
     settings: {
       cache: {
-        enabled: env.bool('CACHE_ENABLED', false),
+        enabled: env.bool("CACHE_ENABLED", false),
+        populateStrapiMiddleware: true,
         models: [
           {
             model: "router",
@@ -19,8 +20,8 @@ module.exports = ({ env }) => {
         type: redisUrl ? "redis" : "mem",
         maxAge: env.int("REDIS_MAX_AGE", 3600000),
         redisConfig: {
-          sentinels: [{ host: redisHost, port: parseInt(redisPort ?? 0) }],
-          name: "redis-primary",
+          host: redisHost,
+          port: parseInt(redisPort),
         },
       },
     },
