@@ -2,6 +2,14 @@
   "routes": [
     {
       "method": "GET",
+      "path": "/routers/all",
+      "handler": "router.findAll",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/routers",
       "handler": "router.find",
       "config": {

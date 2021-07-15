@@ -2,6 +2,14 @@
   "routes": [
     {
       "method": "GET",
+      "path": "/template/:id",
+      "handler": "template.findTemplateById",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/templates",
       "handler": "template.find",
       "config": {

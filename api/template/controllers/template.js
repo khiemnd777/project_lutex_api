@@ -5,4 +5,8 @@
  * to customize this controller
  */
 
-module.exports = {};
+module.exports = {
+  async findTemplateById(ctx) {
+    return await strapi.services["template"].findTemplateById(ctx.params.id);
+  },
+};
