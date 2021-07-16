@@ -61,6 +61,36 @@ if(envMode == "development") {
     });
 }
 
+// Update task
+var updateTask = Task ("Update");
+if(envMode == "development"){
+  updateTask
+    .IsDependentOn ("Clean")
+    .IsDependentOn ("Copy-FS")
+    .IsDependentOn ("Git-Checkout")
+    .IsDependentOn ("Git-Pull")
+    .IsDependentOn ("Yarn-Install")
+    .IsDependentOn ("Build")
+    .Does (() =>
+    {
+      Information("Update with {0} environment.", envMode);
+    });
+}else{
+  updateTask
+    .IsDependentOn ("Clean")
+    .IsDependentOn ("Copy-FS")
+    .IsDependentOn ("Git-Checkout")
+    .IsDependentOn ("Git-Pull")
+    .IsDependentOn ("Yarn-Install")
+    .IsDependentOn ("Build")
+    .IsDependentOn ("PM2-Stop")
+    .IsDependentOn ("PM2-Start")
+    .Does (() =>
+    {
+      Information("Update with {0} environment.", envMode);
+    });
+}
+
 // Default task
 var defaultTask = Task ("Default");
 if (envMode == "development") {
