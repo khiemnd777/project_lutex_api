@@ -16,7 +16,9 @@ module.exports = {
     },
     async beforeUpdate(params, data) {
       await syncWidgetWithEmptyFields(data.Widgets);
-      await strapi.middleware.cache.bust({ model: "router", id: data.id });
+      strapi.middleware.cache &&
+        strapi.middleware.cache.bust &&
+        (await strapi.middleware.cache.bust({ model: "router", id: data.id }));
     },
   },
 };

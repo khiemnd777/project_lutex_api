@@ -1,6 +1,8 @@
 "use strict";
 
-const { syncWidgetWithEmptyFields } = require('../../../_stdio/services/widget/widget-utils');
+const {
+  syncWidgetWithEmptyFields,
+} = require("../../../_stdio/services/widget/widget-utils");
 
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#lifecycle-hooks)
@@ -27,7 +29,12 @@ module.exports = {
         data.FriendlyName = data.Name;
       }
       await syncWidgetWithEmptyFields(data.Widgets);
-      await strapi.middleware.cache.bust({ model: "template", id: data.id });
+      strapi.middleware.cache &&
+        strapi.middleware.cache.bust &&
+        (await strapi.middleware.cache.bust({
+          model: "template",
+          id: data.id,
+        }));
     },
   },
 };
