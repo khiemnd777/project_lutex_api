@@ -33,6 +33,15 @@ class SetPermissionBootstrapper extends Bootstrapper {
     return await strapi.query("permission", "users-permissions").find({
       type: "application",
       role: role.id,
+      _where: [
+        { action_ne: "update" },
+        { action_ne: "create" },
+        { action_ne: "delete" },
+        { action_ne: "createlocalization" },
+        { action_ne: "setup" },
+        { action_ne: "upgrade" },
+        { action_ne: "uninstall" },
+      ]
     });
   }
   async updatePermissions(permissions) {
