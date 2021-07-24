@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "assembled_widgets",
+  "info": {
+    "name": "AssembledWidget"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Parameters": {
+      "type": "component",
+      "repeatable": true,
+      "component": "plugins.parameter"
+    },
+    "Placeholder": {
+      "type": "string"
+    },
+    "Widget": {
+      "model": "widget"
+    },
+    "ConfigurationName": {
+      "type": "string"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Update": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

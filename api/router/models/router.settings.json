@@ -39,6 +39,9 @@
     "IsAuth": {
       "type": "boolean",
       "default": false
+    },
+    "AssembledWidgets": {
+      "collection": "assembled-widget"
     }
   }
 }
