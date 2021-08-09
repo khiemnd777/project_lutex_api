@@ -2,6 +2,14 @@
   "routes": [
     {
       "method": "GET",
+      "path": "/navigations/:name",
+      "handler": "navigations.findByName",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/navigations",
       "handler": "navigations.find",
       "config": {
