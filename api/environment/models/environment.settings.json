@@ -105,6 +105,14 @@
         }
       },
       "component": "seo.common"
+    },
+    "GoogleAnalyticId": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }
