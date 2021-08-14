@@ -18,6 +18,14 @@
     },
     {
       "method": "GET",
+      "path": "/googleAnalyticId",
+      "handler": "environment.googleAnalyticId",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/environment/datenow",
       "handler": "environment.datenow",
       "config": {
