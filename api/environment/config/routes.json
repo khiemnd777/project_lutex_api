@@ -10,6 +10,14 @@
     },
     {
       "method": "GET",
+      "path": "/seo",
+      "handler": "environment.seo",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/environment/datenow",
       "handler": "environment.datenow",
       "config": {
