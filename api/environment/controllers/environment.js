@@ -1,11 +1,17 @@
 "use strict";
 
+const { seoSingle } = require('../../../_stdio/shared/utils');
+const { seo } = require('../../post-items/controllers/post-items');
+
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
  * to customize this controller
  */
 
 module.exports = {
+  async seo(ctx){
+    return await seoSingle('environment');
+  },
   async datenow(ctx) {
     return new Date();
   },
