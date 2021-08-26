@@ -18,6 +18,14 @@
     },
     {
       "method": "GET",
+      "path": "/seo/bai-viet/:slug",
+      "handler": "post-items.seo",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/post-items",
       "handler": "post-items.find",
       "config": {

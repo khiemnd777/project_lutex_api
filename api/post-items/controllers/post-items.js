@@ -4,7 +4,6 @@ const {
   seoCollection,
   toSanitizedModels,
 } = require("../../../_stdio/shared/utils");
-const { search } = require("../services/post-items");
 
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
