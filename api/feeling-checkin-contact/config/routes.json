@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/feeling-checkin-contacts",
+      "handler": "feeling-checkin-contact.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/feeling-checkin-contacts/count",
+      "handler": "feeling-checkin-contact.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/feeling-checkin-contacts/:id",
+      "handler": "feeling-checkin-contact.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/feeling-checkin-contacts",
+      "handler": "feeling-checkin-contact.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/feeling-checkin-contacts/:id",
+      "handler": "feeling-checkin-contact.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/feeling-checkin-contacts/:id",
+      "handler": "feeling-checkin-contact.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

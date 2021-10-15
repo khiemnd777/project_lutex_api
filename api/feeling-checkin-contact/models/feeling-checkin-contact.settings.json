@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "feeling_checkin_contacts",
+  "info": {
+    "name": "FeelingCheckinContact"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FullName": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string"
+    },
+    "PhoneNumber": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "richtext"
+    },
+    "FeelingCheckinData": {
+      "type": "json"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "feeling_checkin_answers",
+  "info": {
+    "name": "FeelingCheckinAnswer",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "checkbox",
+        "text"
+      ]
+    },
+    "Field": {
+      "type": "string"
+    },
+    "Answer": {
+      "type": "richtext"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Question": {
+      "via": "Answers",
+      "model": "feeling-checkin-question"
+    }
+  }
+}

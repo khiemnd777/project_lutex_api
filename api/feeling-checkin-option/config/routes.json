@@ -1,0 +1,60 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/feeling-checkin-options",
+      "handler": "feeling-checkin-option.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/feeling-checkin-questions/:questionId/answers",
+      "handler": "feeling-checkin-option.getAnswersByQuestion",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/feeling-checkin-options/count",
+      "handler": "feeling-checkin-option.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/feeling-checkin-options/:id",
+      "handler": "feeling-checkin-option.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/feeling-checkin-options",
+      "handler": "feeling-checkin-option.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/feeling-checkin-options/:id",
+      "handler": "feeling-checkin-option.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/feeling-checkin-options/:id",
+      "handler": "feeling-checkin-option.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

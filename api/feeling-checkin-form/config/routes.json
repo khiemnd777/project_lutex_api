@@ -1,0 +1,68 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/feeling-checkin-forms",
+      "handler": "feeling-checkin-form.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/feeling-checkin-form/:name",
+      "handler": "feeling-checkin-form.getFormByName",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/feeling-checkin-form/next",
+      "handler": "feeling-checkin-form.fetchNextForm",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/feeling-checkin-forms/count",
+      "handler": "feeling-checkin-form.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/feeling-checkin-forms/:id",
+      "handler": "feeling-checkin-form.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/feeling-checkin-forms",
+      "handler": "feeling-checkin-form.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/feeling-checkin-forms/:id",
+      "handler": "feeling-checkin-form.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/feeling-checkin-forms/:id",
+      "handler": "feeling-checkin-form.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

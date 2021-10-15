@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/feeling-checkin-questions",
+      "handler": "feeling-checkin-question.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/feeling-checkin-questions/count",
+      "handler": "feeling-checkin-question.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/feeling-checkin-questions/:id",
+      "handler": "feeling-checkin-question.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/feeling-checkin-questions",
+      "handler": "feeling-checkin-question.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/feeling-checkin-questions/:id",
+      "handler": "feeling-checkin-question.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/feeling-checkin-questions/:id",
+      "handler": "feeling-checkin-question.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

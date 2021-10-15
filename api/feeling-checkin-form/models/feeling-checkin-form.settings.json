@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "feeling_checkin_forms",
+  "info": {
+    "name": "FeelingCheckinForm",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Questions": {
+      "collection": "feeling-checkin-question"
+    },
+    "NextForms": {
+      "collection": "feeling-checkin-form"
+    },
+    "Condition": {
+      "type": "string"
+    },
+    "Completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "Count": {
+      "type": "integer"
+    },
+    "Start": {
+      "type": "boolean",
+      "default": false
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Header": {
+      "type": "string"
+    },
+    "Operator": {
+      "type": "enumeration",
+      "enum": [
+        "equal",
+        "not_equal",
+        "less",
+        "less_or_equal",
+        "greater",
+        "greater_or_equal"
+      ]
+    },
+    "UseCount": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

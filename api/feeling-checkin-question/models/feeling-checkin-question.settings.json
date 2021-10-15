@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "feeling_checkin_questions",
+  "info": {
+    "name": "FeelingCheckinQuestion",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Answers": {
+      "collection": "feeling-checkin-option",
+      "via": "Question"
+    },
+    "Question": {
+      "type": "string"
+    }
+  }
+}
