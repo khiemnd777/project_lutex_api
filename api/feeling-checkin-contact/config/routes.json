@@ -1,6 +1,14 @@
 {
   "routes": [
     {
+      "method": "POST",
+      "path": "/feeling-checkin-contacts/add",
+      "handler": "feeling-checkin-contact.addContact",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "GET",
       "path": "/feeling-checkin-contacts",
       "handler": "feeling-checkin-contact.find",
