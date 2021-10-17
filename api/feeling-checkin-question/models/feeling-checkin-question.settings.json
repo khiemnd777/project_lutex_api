@@ -13,11 +13,23 @@
   "pluginOptions": {},
   "attributes": {
     "Answers": {
-      "collection": "feeling-checkin-option",
-      "via": "Question"
+      "via": "Question",
+      "collection": "feeling-checkin-option"
     },
     "Question": {
       "type": "string"
+    },
+    "Layout": {
+      "type": "enumeration",
+      "enum": [
+        "vertical",
+        "horizontal"
+      ],
+      "default": "vertical"
+    },
+    "MultipleChoice": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
