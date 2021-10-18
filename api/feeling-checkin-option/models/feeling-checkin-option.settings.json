@@ -32,6 +32,13 @@
     "Question": {
       "via": "Answers",
       "model": "feeling-checkin-question"
+    },
+    "Value": {
+      "type": "string"
+    },
+    "UpdateValue": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

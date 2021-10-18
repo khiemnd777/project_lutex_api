@@ -8,6 +8,33 @@ const { isArray } = require("../../../_stdio/shared/utils");
  */
 
 module.exports = {
+  generateWhatAmIFeelingResult(data) {
+    let result = "";
+    if (data) {
+      if (data.length) {
+        data.forEach((j) => {
+          if (j.answers.length) {
+            result += `Question: ${j.question} \n`;
+            if (j.answers.length === 1) {
+              result += `Answer: ${j.answers[0].value} \n`;
+              result += `\n`;
+              return;
+            }
+            result += "Answers: \n";
+            j.answers.forEach((a) => {
+              result += ` - ${a.value} \n`;
+            });
+            result += `\n`;
+          }
+        });
+      }
+      if (result) {
+        data.WhatAmIFeeling = result;
+      }
+    }
+    return result;
+  },
+
   async addContact(contact, answers) {
     /**
      * contact: {
@@ -16,11 +43,12 @@ module.exports = {
      *  PhoneNumber: string;
      *  Content: string;
      * }
-     * 
+     *
      * answers: {
-     *   question: string;
-     *   answers: {
-     *     value: string;
+     *  _v: number;
+     *  question: string;
+     *  answers: {
+     *    value: string;
      *   }[]
      * }[]
      */
@@ -34,6 +62,9 @@ module.exports = {
       model.FeelingCheckinData = JSON.parse(JSON.stringify(answers));
     }
     try {
+      model.WhatAmIFeeling = this.generateWhatAmIFeelingResult(
+        model.FeelingCheckinData
+      );
       const validModel = await strapi.entityValidator.validateEntityCreation(
         strapi.models["feeling-checkin-contact"],
         model

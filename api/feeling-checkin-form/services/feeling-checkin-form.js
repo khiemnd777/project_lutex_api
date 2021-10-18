@@ -20,11 +20,11 @@ module.exports = {
             const answers = await strapi
               .query("feeling-checkin-option")
               .model.find({ Question: question.id })
-              .select("Type Answer id");
+              .select("Type Answer Value id");
             if (answers) {
               const ansModel = toSanitizedModels(
                 answers,
-                strapi.models["feeling-checkin-form"]
+                strapi.models["feeling-checkin-option"]
               );
               question.Answers = ansModel;
             }
