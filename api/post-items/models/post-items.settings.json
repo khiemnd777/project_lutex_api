@@ -120,6 +120,10 @@
       "type": "integer",
       "max": 5,
       "min": 0
+    },
+    "Tags": {
+      "via": "Posts",
+      "collection": "post-tags"
     }
   }
 }

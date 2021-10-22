@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "post_tags",
+  "info": {
+    "name": "Post Tags",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Tag": {
+      "type": "string",
+      "required": false,
+      "unique": true
+    },
+    "Router": {
+      "model": "router"
+    },
+    "Posts": {
+      "collection": "post-items",
+      "via": "Tags",
+      "dominant": true
+    }
+  }
+}
