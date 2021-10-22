@@ -24,6 +24,9 @@
       "collection": "post-items",
       "via": "Tags",
       "dominant": true
+    },
+    "Slug": {
+      "type": "string"
     }
   }
 }

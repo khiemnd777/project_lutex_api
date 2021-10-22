@@ -12,7 +12,7 @@ module.exports = {
     const result = await strapi
       .query("post-tags")
       .model.find()
-      .select("Tag Posts Router");
+      .select("Tag Slug Posts Router");
 
     var models = toSanitizedModels(result, strapi.models["post-tags"]);
 
@@ -28,6 +28,7 @@ module.exports = {
             [];
           return resolve({
             Tag: tag.Tag,
+            Slug: tag.Slug,
             Posts: tag.Posts,
             Router: {
               id: router?.id,
