@@ -1,5 +1,6 @@
-const apolloServerPluginResponseCache = require("apollo-server-plugin-response-cache");
-const { RedisCache } = require("apollo-server-cache-redis");
+const responseCachePlugin = require("apollo-server-plugin-response-cache");
+const { BaseRedisCache } = require("apollo-server-cache-redis");
+const Redis = require("ioredis");
 
 // set this to whatever you believe should be the max age for your cache control
 const MAX_AGE = 60;
@@ -11,7 +12,7 @@ module.exports = {
     persistedQueries: { ttl: 10 * MAX_AGE }, // we set this to be a factor of 10, somewhat arbitrary
     cacheControl: { defaultMaxAge: MAX_AGE },
     plugins: [
-      apolloServerPluginResponseCache({
+      responseCachePlugin({
         shouldReadFromCache,
         shouldWriteToCache,
         extraCacheKeyData,
@@ -23,7 +24,13 @@ module.exports = {
 };
 
 if ("development" !== strapi.config.environment && process.env.REDIS_URL) {
-  const cache = new RedisCache(process.env.REDIS_URL);
+  const redisParams = process.env.REDIS_URL.split(':');
+  const cache = new BaseRedisCache({
+    client: new Redis({
+      host: redisParams[0],
+      port: redisParams[1] ? parseInt(redisParams[1]) : 6379,
+    }),
+  });
   module.exports.apolloServer.cache = cache;
   module.exports.apolloServer.persistedQueries.cache = cache;
 }
