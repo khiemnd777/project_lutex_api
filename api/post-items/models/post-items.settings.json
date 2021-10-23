@@ -124,6 +124,15 @@
     "Tags": {
       "via": "Posts",
       "collection": "post-tags"
+    },
+    "PreviewUrl": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "private": true
     }
   }
 }

@@ -21,8 +21,8 @@
       "model": "router"
     },
     "Posts": {
-      "collection": "post-items",
       "via": "Tags",
+      "collection": "post-items",
       "dominant": true
     },
     "Slug": {

@@ -190,6 +190,28 @@ const parseBody = (body) => {
   return JSON.parse(body);
 };
 
+const replaceByKeyPairValue = (
+  routerPath,
+  replacedVal,
+  prefix = ":"
+) => {
+  let result = String(routerPath).toLowerCase();
+  for (const prop in replacedVal) {
+    const value = replacedVal[prop];
+    if (undefined !== typeof value && value !== null) {
+      const lowerCasedKey = prop.toLowerCase();
+      result = result.replace(`${prefix}${lowerCasedKey}`, value);
+    }
+  }
+  const regx = new RegExp(`\\/${prefix}[a-zA-Z0-9]+\\?*`, "g");
+  return result.replace(regx, "");
+};
+
+const buildRouterPath = (routerPath, item) => {
+  const path = replaceByKeyPairValue(routerPath, item);
+  return path;
+};
+
 module.exports = {
   random,
   toSanitizedModel,
@@ -210,4 +232,5 @@ module.exports = {
   firstOrDefault,
   parseBody,
   cloneObject,
+  buildRouterPath,
 };

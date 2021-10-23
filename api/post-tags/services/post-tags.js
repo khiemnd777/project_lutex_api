@@ -25,7 +25,7 @@ module.exports = {
                 .query("router")
                 .model.findById(tag.Router)
                 .select("-Parameters -Widgets"))) ||
-            [];
+            null;
           return resolve({
             Tag: tag.Tag,
             Slug: tag.Slug,
