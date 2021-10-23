@@ -3,7 +3,7 @@ const { BaseRedisCache } = require("apollo-server-cache-redis");
 const Redis = require("ioredis");
 
 // set this to whatever you believe should be the max age for your cache control
-const MAX_AGE = 60;
+const MAX_AGE = parseInt(process.env.REDIS_MAX_AGE);
 
 module.exports = {
   federation: false,
