@@ -3,13 +3,13 @@ const { BaseRedisCache } = require("apollo-server-cache-redis");
 const Redis = require("ioredis");
 
 // set this to whatever you believe should be the max age for your cache control
-const MAX_AGE = parseInt(process.env.REDIS_MAX_AGE);
+const MAX_AGE = process.env.REDIS_MAX_AGE ? parseInt(process.env.REDIS_MAX_AGE) : 60;
 
 module.exports = {
   federation: false,
   apolloServer: {
     tracing: "production" !== strapi.config.environment ? true : false,
-    persistedQueries: { ttl: 10 * MAX_AGE }, // we set this to be a factor of 10, somewhat arbitrary
+    persistedQueries: { ttl: 10 * "development" !== strapi.config.environment ? MAX_AGE : 60 }, // we set this to be a factor of 10, somewhat arbitrary
     cacheControl: { defaultMaxAge: MAX_AGE },
     plugins: [
       responseCachePlugin({

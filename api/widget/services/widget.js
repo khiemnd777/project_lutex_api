@@ -117,7 +117,7 @@ module.exports = {
       .select("Widgets");
     if (!entity) return [];
     if (!arraySize(entity.Widgets)) return [];
-    const models = prepareWidgetModels(entity?.Widgets);;
+    const models = prepareWidgetModels(entity?.Widgets);
     return models;
   },
   async findWidgetsByTemplate(templateId) {
@@ -143,8 +143,8 @@ const prepareWidgetModels = (entities) => {
       ConfigurationName: ref.ConfigurationName || ref.widget?.ConfigurationName,
       Parameters: ref.Parameters,
       BackgroundImage: ref.BackgroundImage,
+      BackgroundColor: ref.BackgroundColor,
     };
   });
   return models;
-}
-
+};
