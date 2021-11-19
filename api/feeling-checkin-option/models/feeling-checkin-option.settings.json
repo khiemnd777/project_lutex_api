@@ -16,6 +16,7 @@
       "type": "enumeration",
       "enum": [
         "checkbox",
+        "checkbox2",
         "image",
         "text"
       ]
