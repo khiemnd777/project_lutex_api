@@ -15,6 +15,7 @@ function prepareFormModel(entity) {
       id: entity.id,
       Start: entity.Start,
       Completed: entity.Completed,
+      ShowContactForm: entity.ShowContactForm,
       Name: entity.Name,
       Header: entity.Header,
       Questions: entity.Questions.map((q) => {
