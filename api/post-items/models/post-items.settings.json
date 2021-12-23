@@ -159,6 +159,14 @@
         }
       },
       "component": "common.slider"
+    },
+    "SubTitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }
