@@ -41,7 +41,10 @@
         "Hotmail",
         "Yahoo",
         "Zoho",
-        "iCloud"
+        "iCloud",
+        "Outlook365",
+        "SendGrid",
+        "AOL"
       ]
     },
     "IsDefault": {
