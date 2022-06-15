@@ -4,7 +4,7 @@ const marked = require("marked");
 
 module.exports = {
   async execute() {
-    const maxSendTries = 3;
+    const maxSendTries = 500;
     const queuedEmailService = strapi.services["queued-email"];
     const queuedEmails = await queuedEmailService.searchEmails(
       null, // from,

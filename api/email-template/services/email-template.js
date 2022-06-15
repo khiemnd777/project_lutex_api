@@ -31,10 +31,10 @@ module.exports = {
         sendImmediately: emailTemplate.SendImmediately,
       };
       // Body
-      const body = await renderContent(emailTemplate.Body);
+      const body = emailTemplate.Body;
       modelForSending.body = body;
       // Subject
-      const subject = await renderContent(emailTemplate.Subject);
+      const subject = emailTemplate.Subject;
       modelForSending.subject = subject;
       return modelForSending;
     }

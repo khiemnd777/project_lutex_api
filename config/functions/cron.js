@@ -17,9 +17,9 @@ module.exports = {
    * Queued email send task
    * Every 1 minute
    */ 
-  "0 1 * * * *": {
+  "*/10 * * * * *": {
     task: () => {
-      strapi.log.debug("Queued email sending...");
+      console.log("Queued email sending...");
       queuedEmailSendTask.execute();
     },
   },

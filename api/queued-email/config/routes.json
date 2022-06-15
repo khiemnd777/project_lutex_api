@@ -1,6 +1,14 @@
 {
   "routes": [
     {
+      "method": "POST",
+      "path": "/queued-emails/insert",
+      "handler": "queued-email.insert",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "GET",
       "path": "/queued-emails",
       "handler": "queued-email.find",
