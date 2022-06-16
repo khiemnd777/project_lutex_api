@@ -33,21 +33,29 @@ const createMailTransporter = (emailAccount) => {
       pass: emailAccount.Password,
     },
   };
-  if (emailAccount.Provider) {
-    params = {
-      ...params,
-      service: emailAccount.Provider,
-    };
-  } else {
-    params = {
-      ...params,
-      host: emailAccount.Host,
-      port: emailAccount.Port,
-      secure: emailAccount.Secure,
-    };
-  }
+  // if (emailAccount.Provider) {
+  //   params = {
+  //     ...params,
+  //     service: emailAccount.Provider,
+  //   };
+  // } else {
+  //   params = {
+  //     ...params,
+  //     host: emailAccount.Host,
+  //     port: emailAccount.Port,
+  //     secure: emailAccount.Secure,
+  //   };
+  // }
+  params = {
+    ...params,
+    host: emailAccount.Host,
+    port: emailAccount.Port,
+    secure: emailAccount.Secure,
+    tls:{
+      cyphers: 'SSLv3'
+    }
+  };
 
-  console.log(params);
   const transporter = nodemailer.createTransport(params);
   transporter.verify(function (error, success) {
     if (error) {

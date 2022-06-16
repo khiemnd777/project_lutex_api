@@ -24,6 +24,7 @@
     "apollo-server-cache-redis": "3.2.0",
     "apollo-server-plugin-response-cache": "0.9.0",
     "cross-env": "^7.0.3",
+    "he": "^1.2.0",
     "html-to-text": "^8.0.0",
     "ioredis": "^4.28.0",
     "marked": "^2.0.3",
