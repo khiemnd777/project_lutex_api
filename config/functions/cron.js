@@ -17,7 +17,7 @@ module.exports = {
    * Queued email send task
    * Every 1 minute
    */ 
-  "*/10 * * * * *": {
+  "*/59 * * * * *": {
     task: () => {
       console.log("Queued email sending...");
       queuedEmailSendTask.execute();
